@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:DemonOLP_b2/Assets/Scripts/Command/Marching/PlaneRender.cs.meta
+guid: 68a2c273906400f4995c74f07d8626f9
+=======
+guid: fd106a313d5413140853feb5b10409c0
+>>>>>>> NewCommandSystem:DemonOLP_b2/Assets/Plugins/RosSharp/Scripts/Urdf/UrdfComponents/UrdfJoints/HingeJointAngleCalculator.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

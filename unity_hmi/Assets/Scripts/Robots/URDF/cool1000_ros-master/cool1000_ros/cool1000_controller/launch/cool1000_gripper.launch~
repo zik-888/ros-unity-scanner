@@ -1,0 +1,7 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+    <node name="cool1000_gripper_controller_test 
+" pkg="cool1000_controller" type="cool1000_gripper_controller_test 
+" output="screen">
+</launch>
