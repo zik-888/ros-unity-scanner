@@ -1,0 +1,2 @@
+string request
+geometry_msgs/Pose artur_scan_pose

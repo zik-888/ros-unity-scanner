@@ -1,0 +1,39 @@
+cmake_minimum_required(VERSION 2.8.3)
+project(manipulator)
+
+#set(CMAKE_INCLUDE_REMOTE_API /home/ros-industrial/CoppeliaSim_Edu_V4_0_0_Ubuntu18_04/programming/remoteApi)
+#set(CMAKE_INCLUDE_MASTER /home/ros-industrial/CoppeliaSim_Edu_V4_0_0_Ubuntu18_04/programming/include)
+#set(CMAKE_INCLUDE_LIB /home/ros-industrial/CoppeliaSim_Edu_V4_0_0_Ubuntu18_04/programming/remoteApiBindings/lib/lib/Ubuntu18_04)
+SET(CMAKE_CXX_FLAGS -pthread)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOMOC ON)
+add_compile_options(-std=c++11)
+
+set(SOURCE_LIB manipulator.cpp)
+
+
+find_package(catkin REQUIRED COMPONENTS
+  roscpp
+  message_generation
+  std_msgs
+  geometry_msgs
+  visualization_msgs
+  Qt5Core
+  Qt5Network
+)
+
+
+include_directories(
+  ${catkin_INCLUDE_DIRS}
+  ${CMAKE_INCLUDE_REMOTE_API}
+  ${CMAKE_INCLUDE_MASTER}
+  ${CMAKE_INCLUDE_LIB}
+)
+
+
+
+add_library(manipulator STATIC ${SOURCE_LIB})
+
+target_link_libraries(manipulator Qt5::Core Qt5::Network)
+
+## target_include_directories(manipulator  PUBLIC ${CMAKE_INCLUDE_REMOTE_API} ${CMAKE_INCLUDE_MASTER} ${CMAKE_INCLUDE_LIB})

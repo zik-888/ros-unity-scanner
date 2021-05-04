@@ -1,0 +1,13 @@
+#goal definition
+float32 x1
+float32 y1
+float32 x2
+float32 y2
+#int32 x1
+---
+#result definition
+shape_msgs/MeshTriangle[] triangles
+geometry_msgs/Point[] vertices
+---
+#feedback
+int32 status

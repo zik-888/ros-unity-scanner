@@ -1,0 +1,4 @@
+int32 motion_type
+geometry_msgs/Pose[] rpose
+---
+bool answer
