@@ -42,62 +42,7 @@
 #include <pcl_ros/transforms.h>
  */
 
-
 ros::Publisher status_pub;
-
-/*simxInt ConnectToVREP (int port)
-{
-    simxFinish(-1);
-
-    const simxChar* connectionAdr = "127.0.0.1";
-    simxInt clientID;
-
-    clientID = simxStart(connectionAdr, port, 0, 0, 5000, 5);
-    //std::cout << "Connected to VREP \n ClientID = " << clientID << std::endl;
-    ROS_INFO("Connected to VREP \n ClientID = %d ", clientID);
-    return clientID;
-}
-
-void thStatusMessage(scanning_system_core::Status& status_msg)
-{
-    ros::Rate loop_rate(1);
-    while(ros::ok())
-    {
-        status_pub.publish(status_msg);
-        loop_rate.sleep();
-    }
-}*/
-
-/*class CStatusMessage
-{
-public:
-    CStatusMessage(ros::NodeHandle& nh, scanning_system_core::Status& status_msg)
-    {
-        last_status_.status = status_msg.status;
-        last_status_.errorcode = status_msg.errorcode;
-
-        ROS_INFO("Status was sended");
-        //std::cout << "Status = " << StatusOfScaner << std::endl;
-        //status_msg.status = StatusOfScaner;
-
-        //last_status_ = status_msg;
-        status_pub.publish(status_msg);
-
-        //server_status = nh.advertiseService("StatusMsg", &StatusMessage::status_send, this);
-
-    }
-    bool status_send(scanning_system_core::StatusService::Request &req, scanning_system_core::StatusService::Response &res)
-    {
-        res.status = last_status_.status;
-        ROS_INFO("sending back response");
-        // get scanning area (req)
-        return true;
-    }
-
-    ros::ServiceServer server_status;
-    scanning_system_core::Status last_status_;
-
-};*/
 
 void ServiceGetPose(ros::NodeHandle nh)
 {

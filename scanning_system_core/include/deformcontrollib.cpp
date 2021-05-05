@@ -10,7 +10,6 @@
 #include <ros/ros.h>
 
 #include "pcl-1.10/pcl/point_cloud.h"
-//#include <pcl_ros/point_cloud.h>
 #include <pcl-1.10/pcl/conversions.h>
 #include <pcl-1.10/pcl/search/kdtree.h>
 #include <pcl-1.10/pcl/point_cloud.h>
