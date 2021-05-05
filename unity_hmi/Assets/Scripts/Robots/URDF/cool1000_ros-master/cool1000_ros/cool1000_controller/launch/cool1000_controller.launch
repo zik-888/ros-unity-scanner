@@ -1,0 +1,80 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+
+    <!-- Start the Dynamixel motor manager to control all cool1000 servos -->
+   <node name="dynamixel_manager" pkg="dynamixel_controllers" type="controller_manager.py" required="true" output="screen">
+        <rosparam>
+            namespace: dxl_manager
+            serial_ports:
+                dynamixel_port:
+                    port_name: "/dev/ttyUSB0"
+                    baud_rate: 1000000
+                    min_motor_id: 0
+                    max_motor_id: 8
+                    update_rate: 20
+        </rosparam>
+    </node>
+    
+      <!-- Load joint controller configuration from YAML file to parameter server -->
+  <rosparam file="$(find cool1000_controller)/config/cool1000.yaml" command="load"/>
+
+    <!-- Start all SmartArm joint controllers -->
+    <node name="controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --port dynamixel_port
+                joint1_controller
+                joint2_controller
+				joint3_controller
+				joint4_controller
+				joint5_controller
+				joint6_controller
+				joint7_controller
+				gripper_controller1
+				gripper_controller2"
+		   output="screen"/>
+		   
+	 <!-- Load joint controller configuration from YAML file to parameter server -->
+  <rosparam file="$(find cool1000_controller)/config/cool1000_dummy.yaml" command="load"/>
+
+    <!-- Start all SmartArm joint controllers -->
+    <node name="controller_spawner_dummy" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --port dynamixel_port
+                joint2_dummy_controller"
+		   output="screen"/>
+		   
+   <node name = "parallel_servo_starter" pkg = "cool1000_controller" type = "parallel_servo.py" output="screen"/>
+        
+   <!-- Start the cool1000 arm trajectory controller -->
+	<rosparam file="$(find cool1000_controller)/config/cool1000_trajectory_controller.yaml" command="load"/>
+    <node name="controller_spawner_meta" pkg="dynamixel_controllers" type="controller_spawner.py"
+      args="--manager=dxl_manager
+            --type=meta
+			cool1000_trajectory_controller
+            joint1_controller
+            joint2_controller			
+            joint3_controller
+			joint4_controller
+			joint5_controller
+			joint6_controller
+			joint7_controller"
+     output="screen"/>
+
+  <!-- Publish combined joint info -->
+  <include file="$(find cool1000_controller)/launch/joint_state_aggregator.launch" />
+
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find cool1000_description)/robots/cool1000.xacro'" />
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen">
+    <rosparam param="source_list">[joint_states]</rosparam>
+    <rosparam param="use_gui">FALSE</rosparam>
+  </node>
+
+  <!-- Start the Cool1000 Gripper Server to control the end effector -->
+  <node name="Cool1000_gripper_controller" pkg="cool1000_controller" type="cool1000_gripper_controller" output="screen"
+	args="_simulate:=false" />  
+	
+  <node name = "cool1000_pose_zero" pkg = "cool1000_controller" type = "cool1000_pose_zero.py" output="screen"/>
+  
+</launch>
+
