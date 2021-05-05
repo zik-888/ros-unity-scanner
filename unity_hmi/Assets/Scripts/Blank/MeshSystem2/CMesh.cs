@@ -8,16 +8,14 @@ using System.Threading.Tasks;
 using UnityEngine;
 using MeshSystem;
 using MeshSystem.Surfaces;
+using Sirenix.OdinInspector;
 
 namespace MeshSystem
 {
-    public struct CMesh
+    [Serializable]
+    public struct CMesh : IDisposable
     {
         public int id;
-
-        //public Vector3 Position;
-        //public Vector3 Rotation;
-        //public float Scale;
 
         public Triangle[] Triangles { private set; get; }
         public Vector3[] Vertices { private set; get; }
@@ -150,6 +148,8 @@ namespace MeshSystem
             //print(elapsedTime.ToString());
         }
 
+
+        [Button]
         private void DebugVerticesLog()
         {
             foreach (var a in Triangles)
@@ -157,11 +157,14 @@ namespace MeshSystem
                 foreach(var b in a.Edges)
                 {
                     UnityEngine.Debug.Log("V");
-                    UnityEngine.Debug.DrawLine(b.v0.Position, b.v1.Position, Color.red, 1000f);
+                    UnityEngine.Debug.DrawLine(b.v0.Position, b.v1.Position, Color.red, 10f);
                 }
             }
+        }
 
-            
+        public void Dispose()
+        {
+            CMeshPool.Clear();
         }
     }
 }

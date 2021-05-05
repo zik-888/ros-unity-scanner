@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using thelab.mvc;
 using UnityEngine;
 using MeshSystem;
+using Sirenix.Serialization;
 
 public class EditWindowController : Element<DemonOLPApplication>
 {
@@ -10,6 +11,8 @@ public class EditWindowController : Element<DemonOLPApplication>
     protected Transform TDContainer;
 
     protected GameObject blank;
+    
+    [OdinSerialize]
     protected CMesh mesh;
 
     [SerializeField]
@@ -37,19 +40,23 @@ public class EditWindowController : Element<DemonOLPApplication>
             //                 app.model.blankModels[a].BlankPose.scale);
 
             mesh = new CMesh(app.model.BlankModels[a].Mesh.vertices,
-                             app.model.BlankModels[a].Mesh.triangles,
-                             blank.transform);
+                app.model.BlankModels[a].Mesh.triangles,
+                blank.transform);
 
             //mesh.InitSurfaces();
 
-            
+
 
         }
-        catch { }
+        catch
+        {
+            print("EditWindowControllerBug");
+        }
     }
 
     private void OnDisable()
     {
+        mesh.Dispose();
         Destroy(blank);
     }
 
