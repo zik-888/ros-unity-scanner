@@ -8,6 +8,7 @@
 #include <map>
 
 #include <ros/ros.h>
+#include <CPolyModel/CPolyModel.h>
 
 #include "pcl-1.10/pcl/point_cloud.h"
 #include <pcl-1.10/pcl/conversions.h>
@@ -217,7 +218,7 @@ std::vector<int> GetPointsFromTwoDimensionalMas(std::vector<std::vector<int>> Tw
 }
 
 // generation random points inside triangles
-std::vector<std::vector<double>> sampling(struct SPolyModel &model, int number_of_sampling)
+std::vector<std::vector<double>> sampling(SPolyModel &model, int number_of_sampling)
 {
     // pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>);
 
@@ -393,7 +394,7 @@ double VectorLen(std::vector<double> vector) { return sqrt(pow(vector[0], 2) + p
 
 float VectorLen(std::vector<float> vector) { return sqrt(pow(vector[0], 2) + pow(vector[1], 2) + pow(vector[2], 2)); }
 
-std::vector<CSprings> SpringLengthCalc(struct SPolyModel &model)
+std::vector<CSprings> SpringLengthCalc(SPolyModel &model)
 {
     std::vector<CSprings> SpringsLength;
     CSprings Spring;
@@ -581,7 +582,7 @@ pcl::KdTreeFLANN<pcl::PointXYZ> KDTreeCreate(std::vector<std::vector<double>> sa
     return KDTree;
 }
 
-float getError(struct SPolyModel cad_model,
+float getError(SPolyModel cad_model,
                std::vector<int> OneDimMassivePoint,
                pcl::KdTreeFLANN<pcl::PointXYZ> &KDTree_POLY)
 {
@@ -614,8 +615,7 @@ float getError(struct SPolyModel cad_model,
     return *std::max_element(err.begin(), err.end());
 }
 
-struct SAreasOfModel SearchDeformation(pcl::KdTreeFLANN<pcl::PointXYZ> &KDTree_SCAN,
-                                       struct SPolyModel &cad_model)
+SAreasOfModel SearchDeformation(pcl::KdTreeFLANN<pcl::PointXYZ> &KDTree_SCAN, SPolyModel &cad_model)
 {
     float eps = 0.2;
     int area_num = 500;
@@ -949,7 +949,7 @@ struct SAreasOfModel SearchDeformation(pcl::KdTreeFLANN<pcl::PointXYZ> &KDTree_S
 
     return areas;
 }
-std::vector<float> GetLenOfSprings(std::vector<int> OneDimDefPlane, struct SPolyModel &cad_model)
+std::vector<float> GetLenOfSprings(std::vector<int> OneDimDefPlane, SPolyModel &cad_model)
 {
     std::vector<std::vector<int>> dots;
     std::vector<float> MassiveLength;
@@ -995,8 +995,8 @@ float GoMassSpringSystem(float coef_elast,
                           std::vector<int> BorderOfAreas,
                           std::vector<CSprings> SpringsLength,
                           std::vector<int> OneDimMassivePoint,
-                          struct SPolyModel &poly_model,
-                          struct SPolyModel &cad_model,  
+                          SPolyModel &poly_model,
+                          SPolyModel &cad_model,
                           std::vector<std::vector<double>> sample_points_on_def,
                           pcl::KdTreeFLANN<pcl::PointXYZ> &KDTree_POLY)
 {
@@ -1248,7 +1248,7 @@ float GoMassSpringSystem(float coef_elast,
     return err;
 }
 
-struct STrajectory TrajectoryForm(struct SPolyModel &cad_model)
+STrajectory TrajectoryForm(SPolyModel &cad_model)
 {
     pcl::PointXYZ searchPoint;
     std::vector<int> pointIdxNKNSearch(1);
@@ -1321,8 +1321,8 @@ struct STrajectory TrajectoryForm(struct SPolyModel &cad_model)
     return trajectory;
 }
 
-float CalcTrajectoryError(struct STrajectory &trajectory, struct SPolyModel &poly_model,
-                           struct SPolyModel &cad_model, int number_sampling)
+float CalcTrajectoryError(STrajectory &trajectory, SPolyModel &poly_model,
+                          SPolyModel &cad_model, int number_sampling)
 {
     float traj_error = 0;
     float traj_error_0 = 0;
@@ -1386,13 +1386,13 @@ float CalcTrajectoryError(struct STrajectory &trajectory, struct SPolyModel &pol
     return traj_error;
 }
 
-float DeformationsControl(struct SPolyModel &poly_model,
-                           struct SPolyModel &cad_model,
-                           int number_sampling,
-                           float coef_elast,
-                           float damping,
-                           float mass,
-                           int iter_number)
+float DeformationsControl(SPolyModel &poly_model,
+                          SPolyModel &cad_model,
+                          int number_sampling,
+                          float coef_elast,
+                          float damping,
+                          float mass,
+                          int iter_number)
 {
 
     float error_of_correct;
@@ -1445,7 +1445,7 @@ float DeformationsControl(struct SPolyModel &poly_model,
     return error_of_correct;
 }
 
-int test(struct SPolyModel &model)
+int test(SPolyModel &model)
 {
     std::vector<CSprings> SpringsLength = SpringLengthCalc(model);
 
@@ -1513,7 +1513,7 @@ void MakeNoiseModel(struct SPolyModel &model)
     }
 }
 
-void LinkTrajectoryToModel(struct SPolyModel &model, std::vector<std::vector<float>> traj)
+void LinkTrajectoryToModel(SPolyModel &model, std::vector<std::vector<float>> traj)
 {
     std::vector<double> PointP(3);
     double eps = 0.05;

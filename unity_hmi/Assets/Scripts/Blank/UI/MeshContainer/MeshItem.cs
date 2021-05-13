@@ -33,6 +33,28 @@ public class MeshItem : Element<DemonOLPApplication>, ISelectHandler, IDeselectH
         alignmentButton.gameObject.SetActive(app.model.BlankModels[id].type != BlankType.Scan);
     }
 
+
+    #region ScanRegion
+
+    public void Align()
+    {
+        
+    }
+
+    public void SearchDeform()
+    {
+        
+    }
+
+    public void Deform()
+    {
+        
+    }
+
+    #endregion
+    
+    
+
     public void PoseAlignment()
     {
         var client = GameObject.Find("RosConnector").GetComponent<UnityProcessingActionClient>();

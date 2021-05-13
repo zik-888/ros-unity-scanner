@@ -4,7 +4,7 @@
 #endif // CMESSAGE_H
 
 #pragma once
-#include <CPolyModel.h>
+#include "CPolyModel.h"
 
 using namespace std;
 

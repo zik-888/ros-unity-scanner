@@ -1,0 +1,8 @@
+#goal definition
+bool alive
+---
+#result definition
+bool status
+---
+#feedback
+bool status

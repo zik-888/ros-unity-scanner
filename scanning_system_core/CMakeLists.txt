@@ -59,6 +59,7 @@ add_action_files(
   DIRECTORY action
   FILES Scanning.action
         Processing.action
+        Status.action
 )
 
 
@@ -101,6 +102,8 @@ set(HEADER_FILES
     ${CMAKE_INCLUDE_KAPI}/kApi
     /home/lab45/catkin_ws/src/scanning_system_core/include
     /home/lab45/catkin_ws/src/scanning_system_core/include/actions_scan
+    /home/lab45/catkin_ws/src/scanning_system_core/include/actions_proc
+    /home/lab45/catkin_ws/src/scanning_system_core/include/actions_status
     /home/lab45/catkin_ws/src/scanning_system_core/include/CScanner
     /home/lab45/catkin_ws/src/scanning_system_core/include/CTrajectory
     /home/lab45/catkin_ws/src/scanning_system_core/include/CPolyModel)
@@ -116,6 +119,8 @@ include_directories(
   ${PCL_INCLUDE_DIRS}
   include
   include/actions_scan
+  include/actions_proc
+  include/actions_status
   include/CScanner
   include/CTrajectory
   include/CPolyModel
@@ -135,6 +140,8 @@ add_executable(add_two_ints_client src/add_two_ints_client.cpp)
 
 ##add_subdirectory(include)
 add_subdirectory(include/actions_scan)
+add_subdirectory(include/actions_proc)
+add_subdirectory(include/actions_status)
 add_subdirectory(include/CScanner)
 add_subdirectory(include/CTrajectory)
 add_subdirectory(include/CPolyModel)
@@ -157,7 +164,7 @@ target_link_libraries(add_two_ints_client ${catkin_LIBRARIES})
 
 target_link_libraries(scanning_node /home/lab45/SOFTWARE_GO_SDK/GO_SDK/lib/linux_x64d/libGoSdk.so)
 target_link_libraries(scanning_node /home/lab45/SOFTWARE_GO_SDK/GO_SDK/lib/linux_x64d/libkApi.so)
-target_link_libraries(scanning_node CScanner CTrajectory CPolyModel action_scan)
+target_link_libraries(scanning_node CScanner CTrajectory CPolyModel action_scan) ##action_proc action_status)
 ##target_include_directories(scanning_node PRIVATE ${CMAKE_INCLUDE_REMOTE_API})
 ##target_include_directories(scanning_node PRIVATE ${CMAKE_INCLUDE_MASTER})
 

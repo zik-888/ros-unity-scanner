@@ -8,7 +8,9 @@
 
 #include <GoSdk/GoSdk.h>
 #include <stdio.h>
-#include <include/deformcontrollib.cpp>
+
+#include "deformcontrollib.cpp"
+//#include <include/deformcontrollib.cpp>
 
 #include <CScanner/CScanner.h>
 #include <CPolyModel/CPolyModel.h>

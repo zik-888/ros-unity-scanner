@@ -8,6 +8,7 @@
 #include <actions_proc/action_proc.h>
 
 #include <CScanner/CScanner.h>
+#include <actions_status/action_status.h>
 
 #include <ros/ros.h>
 #include "scanning_system_core/AddTwoInts.h"
@@ -42,7 +43,7 @@
 #include <pcl_ros/transforms.h>
  */
 
-ros::Publisher status_pub;
+//ros::Publisher status_pub;
 
 void ServiceGetPose(ros::NodeHandle nh)
 {
@@ -68,14 +69,14 @@ void ServiceGetPose(ros::NodeHandle nh)
     loop_rate.sleep();
 }
 
-static void StatusTopic (const scanning_system_core::Status& m)
+/*static void StatusTopic (const scanning_system_core::Status& m)
 {
   scanning_system_core::Status marker;
   marker.status = m.status;
   marker.errorcode = m.errorcode;
 
   status_pub.publish(marker);
-}
+}*/
 
 int main(int argc, char* argv[])
 {
@@ -91,9 +92,10 @@ int main(int argc, char* argv[])
     //Action server init
     ScanningAction scanning_action("scanning_node", nh, &SCAN_MODEL);
     ProcessingAction proc_action("proc_node", nh, &SCAN_MODEL);
+    StatusAction status_action("status_node", nh);
 
     // Topic status init
-    status_pub = nh.advertise<scanning_system_core::Status>("status_of_scan_system", 1000);
+    // status_pub = nh.advertise<scanning_system_core::Status>("status_of_scan_system", 1000);
     scanning_system_core::Status statusMsg;
 
     statusMsg.status = 0;
