@@ -17,6 +17,8 @@ public class DemonOLPModel : Model<DemonOLPApplication>
 {
     public Material[] materials;
 
+    
+    
     public ReactiveProperty<SceneState> SceneState = new ReactiveProperty<SceneState>(new SceneState());
 
     public ReactiveCollection<RobotModel> RobotModels = new ReactiveCollection<RobotModel>();
@@ -25,6 +27,9 @@ public class DemonOLPModel : Model<DemonOLPApplication>
 
     public ReactiveProperty<bool> IsSelectScanArea = new ReactiveProperty<bool>(false);
     public ReactiveProperty<ScanArea> ScanArea = new ReactiveProperty<ScanArea>(new ScanArea());
+
+    public ReactiveProperty<bool[]> rosNodeStatus = new ReactiveProperty<bool[]>(new bool[] {false, false, false});
+    
 
     //public CommandModel[] commandModelsList;
 

@@ -19,7 +19,7 @@ public class MeshSplitterBind : MonoBehaviour
     
     
     [SerializeField]
-    private SplitMode splitMode = SplitMode.Off;
+    private SplitMode splitMode = default;
 
     [SerializeField] private MeshSplitter splitter;
     
