@@ -69,6 +69,18 @@ void ServiceGetPose(ros::NodeHandle nh)
     loop_rate.sleep();
 }
 
+void thStatusAction(ros::NodeHandle nh)
+{
+    ros::Rate r(1);
+    StatusAction status_action("status_node", nh);
+
+    while(true)
+    {
+        //ROS_INFO("Zina loh");
+        r.sleep();
+    }
+}
+
 /*static void StatusTopic (const scanning_system_core::Status& m)
 {
   scanning_system_core::Status marker;
@@ -87,12 +99,14 @@ int main(int argc, char* argv[])
     ros::Rate loop_rate(10);
 
     SPolyModel SCAN_MODEL;
+
+    std::thread thStatus(thStatusAction, nh);
     //struct SPolyModel SCAN_MODEL;
 
     //Action server init
     ScanningAction scanning_action("scanning_node", nh, &SCAN_MODEL);
     ProcessingAction proc_action("proc_node", nh, &SCAN_MODEL);
-    StatusAction status_action("status_node", nh);
+    // // // StatusAction status_action("status_node", nh);
 
     // Topic status init
     // status_pub = nh.advertise<scanning_system_core::Status>("status_of_scan_system", 1000);
@@ -104,6 +118,7 @@ int main(int argc, char* argv[])
     //ros::Rate loop_rate(1);
 
     scanning_system_core::Status st;//pause
+    thStatus.detach();
 
 
     ros::spin();

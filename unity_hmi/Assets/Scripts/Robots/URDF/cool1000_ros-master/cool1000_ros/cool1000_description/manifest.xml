@@ -1,0 +1,6 @@
+<package>
+  <description brief="cool1000_description">cool1000_description</description>
+  <depend package="gazebo" />
+  <author>me</author>
+  <license>BSD</license>
+</package>

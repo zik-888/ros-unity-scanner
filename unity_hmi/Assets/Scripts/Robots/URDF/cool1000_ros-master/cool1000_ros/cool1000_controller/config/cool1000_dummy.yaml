@@ -1,0 +1,12 @@
+joint2_dummy_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint2_dummy
+    joint_speed: 0.10
+    motor:
+        id: 2
+        init: 2048
+        min: 1017
+        max: 3084
