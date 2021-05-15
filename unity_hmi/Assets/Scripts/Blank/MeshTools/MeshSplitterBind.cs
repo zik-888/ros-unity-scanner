@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Blank.MeshTools;
 
-using Parabox.CSG;
 using Sirenix.OdinInspector;
-using Boolean = Parabox.CSG.Boolean;
 
 public class MeshSplitterBind : MonoBehaviour
 {
@@ -17,13 +15,13 @@ public class MeshSplitterBind : MonoBehaviour
         OnAndSelect
     }
     
-    
+#pragma warning disable 414
     [SerializeField]
-    private SplitMode splitMode = SplitMode.Off;
+    private SplitMode splitMode = default;
 
     [SerializeField] private MeshSplitter splitter;
     
-
+#pragma warning restore 414
     public void SetSplitMode(bool mode)
     {
         switch (mode)
@@ -49,12 +47,7 @@ public class MeshSplitterBind : MonoBehaviour
         // GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Plane);
         // sphere.transform.localScale = Vector3.one * 1.3f;
 
-        // Perform boolean operation
-        CSG_Model result = Boolean.Subtract(cube, sphere);
 
         // Create a gameObject to render the result
-        var composite = new GameObject();
-        composite.AddComponent<MeshFilter>().sharedMesh = result.mesh;
-        composite.AddComponent<MeshRenderer>().sharedMaterials = result.materials.ToArray();
     }
 }

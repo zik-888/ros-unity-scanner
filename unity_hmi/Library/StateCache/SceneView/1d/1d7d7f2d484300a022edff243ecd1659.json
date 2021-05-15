@@ -1,5 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":false,"showSkybox":false,"showFlares":false,"showImageEffects":false,"showParticleSystems":false,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":true,"pivot":{"x":377.0322570800781,"y":312.6817321777344,"z":428.47491455078127},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":356.7425231933594,"orthographic":true}
 =======
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":false,"showSkybox":false,"showFlares":false,"showImageEffects":false,"showParticleSystems":false,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":false,"pivot":{"x":-5.349510192871094,"y":140.84909057617188,"z":554.6404418945313},"rotation":{"x":-0.10963767021894455,"y":-0.8306376934051514,"z":0.5167317986488342,"w":-0.1762712001800537},"size":161.15382385253907,"orthographic":true}
+>>>>>>> origin/unity-branch
+||||||| a5626c8
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":false,"showSkybox":false,"showFlares":false,"showImageEffects":false,"showParticleSystems":false,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":false,"pivot":{"x":-5.349510192871094,"y":140.84909057617188,"z":554.6404418945313},"rotation":{"x":-0.10963767021894455,"y":-0.8306376934051514,"z":0.5167317986488342,"w":-0.1762712001800537},"size":161.15382385253907,"orthographic":true}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":false,"showSkybox":false,"showFlares":false,"showImageEffects":false,"showParticleSystems":false,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":true,"pivot":{"x":486.9906311035156,"y":254.44033813476563,"z":-666.816162109375},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":338.0404052734375,"orthographic":true}
 >>>>>>> origin/unity-branch

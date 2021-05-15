@@ -3,9 +3,7 @@ using System.Linq;
 using MeshSystem;
 using thelab.mvc;
 using UnityEngine;
-using Parabox.CSG;
 using Sirenix.OdinInspector;
-using Boolean = Parabox.CSG.Boolean;
 
 
 namespace Blank.MeshTools
@@ -134,13 +132,8 @@ namespace Blank.MeshTools
             // GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Plane);
             // sphere.transform.localScale = Vector3.one * 1.3f;
 
-            // Perform boolean operation
-            CSG_Model result = Boolean.Subtract(cube, sphere);
 
             // Create a gameObject to render the result
-            var composite = new GameObject();
-            composite.AddComponent<MeshFilter>().sharedMesh = result.mesh;
-            composite.AddComponent<MeshRenderer>().sharedMaterials = result.materials.ToArray();
         }
     }
 }
