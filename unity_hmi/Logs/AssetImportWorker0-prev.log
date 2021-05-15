@@ -1,0 +1,157 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.8f1 (507919d4fff5) revision 5273881'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19041.928; Version 2004; 64bit' Language: 'ru' Physical Memory: 24441 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.8f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/HaoAsakura/YandexDisk/SS_ISH/Demon/git-demon/Demostrator/unity_hmi
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+63456
+Successfully changed project path to: C:/Users/HaoAsakura/YandexDisk/SS_ISH/Demon/git-demon/Demostrator/unity_hmi
+C:/Users/HaoAsakura/YandexDisk/SS_ISH/Demon/git-demon/Demostrator/unity_hmi
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 85.50 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.8f1 (507919d4fff5)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/HaoAsakura/YandexDisk/SS_ISH/Demon/git-demon/Demostrator/unity_hmi/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1060 with Max-Q Design (ID=0x1c20)
+    Vendor:   
+    VRAM:     6052 MB
+    Driver:   27.21.14.6627
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56816
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003453 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 89.28 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.083 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.043926 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.08 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.376 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2567 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 110.0 MB.
+System memory in use after: 110.2 MB.
+
+Unloading 178 unused Assets to reduce memory usage. Loaded Objects now: 3007.
+Total: 33.584700 ms (FindLiveObjects: 0.390100 ms CreateObjectMapping: 0.178000 ms MarkObjects: 32.131300 ms  DeleteObjects: 0.882000 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Sprites/67271315-retina-scan-icon-logo-on-white-eye-scanner-biometric-recognition-system.png
+  artifactKey: Guid(46c23f593637964499563f2a19d2e9cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/67271315-retina-scan-icon-logo-on-white-eye-scanner-biometric-recognition-system.png using Guid(46c23f593637964499563f2a19d2e9cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13b9152f972475765d678aa1d4052a54') in 0.415132 seconds
+  Import took 0.420389 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.005508 seconds.
+  path: Assets/Sprites/67271315-retina-scan-icon-logo-on-white-eye-scanner-biometric-recognition-system.png
+  artifactKey: Guid(46c23f593637964499563f2a19d2e9cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/67271315-retina-scan-icon-logo-on-white-eye-scanner-biometric-recognition-system.png using Guid(46c23f593637964499563f2a19d2e9cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '358918af28e4b7cc93c58f0eddb13369') in 0.110472 seconds
+  Import took 0.117341 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.018902 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.85 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.824 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.55 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2542 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 109.0 MB.
+System memory in use after: 109.2 MB.
+
+Unloading 174 unused Assets to reduce memory usage. Loaded Objects now: 3050.
+Total: 33.364700 ms (FindLiveObjects: 0.393700 ms CreateObjectMapping: 0.163100 ms MarkObjects: 32.540300 ms  DeleteObjects: 0.265800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 245.924587 seconds.
+  path: Assets/Sprites/67271315-retina-scan-icon-logo-on-white-eye-scanner-biometric-recognition-system.png
+  artifactKey: Guid(46c23f593637964499563f2a19d2e9cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/67271315-retina-scan-icon-logo-on-white-eye-scanner-biometric-recognition-system.png using Guid(46c23f593637964499563f2a19d2e9cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc805717aa394ad81b091d36f4e1bea5') in 0.165582 seconds
+  Import took 0.173920 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 951.189256 seconds.
+  path: Assets/Sprites/271099861.png
+  artifactKey: Guid(56b5644101442c54f942d2be5be90711) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/271099861.png using Guid(56b5644101442c54f942d2be5be90711) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4dd7554318289ebd449699ea33181fcb') in 0.031497 seconds
+  Import took 0.041383 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001647 seconds.
+  path: Assets/Sprites/271099861.png
+  artifactKey: Guid(56b5644101442c54f942d2be5be90711) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/271099861.png using Guid(56b5644101442c54f942d2be5be90711) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4dd7554318289ebd449699ea33181fcb') in 0.020253 seconds
+  Import took 0.027273 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.618087 seconds.
+  path: Assets/Sprites/271099861.png
+  artifactKey: Guid(56b5644101442c54f942d2be5be90711) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/271099861.png using Guid(56b5644101442c54f942d2be5be90711) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '279cd1f5280b7b2e966008ff72cb0fc9') in 0.032897 seconds
+  Import took 0.038995 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.016806 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.90 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.453 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.77 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2542 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 109.0 MB.
+System memory in use after: 109.2 MB.
+
+Unloading 174 unused Assets to reduce memory usage. Loaded Objects now: 3054.
+Total: 28.021700 ms (FindLiveObjects: 0.346500 ms CreateObjectMapping: 0.191400 ms MarkObjects: 27.257100 ms  DeleteObjects: 0.225400 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

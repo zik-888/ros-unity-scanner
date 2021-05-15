@@ -2830,84 +2830,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270099811}
   m_CullTransparentMesh: 0
---- !u!1 &281125074 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3460520108575279129, guid: e5f1387d738f69e4e906daf1d1ed2467,
-    type: 3}
-  m_PrefabInstance: {fileID: 1257841792}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &281125075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281125074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56bcea88e8a836b469950ef42e8ad51a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  actionName: 
-  nodeType: 0
-  timeoutSec: 1
---- !u!114 &281125076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281125074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56bcea88e8a836b469950ef42e8ad51a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  actionName: 
-  nodeType: 2
-  timeoutSec: 1
---- !u!114 &281125077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281125074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56bcea88e8a836b469950ef42e8ad51a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  actionName: 
-  nodeType: 1
-  timeoutSec: 1
 --- !u!1 &293600558
 GameObject:
   m_ObjectHideFlags: 0
@@ -9589,8 +9511,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0017242432, y: 0}
-  m_SizeDelta: {x: -0.0034332275, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1023704386
 MonoBehaviour:
@@ -9669,7 +9591,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10233,7 +10155,9 @@ MonoBehaviour:
       secondPoint: {x: 0, y: 0}
       height: 0
   rosNodeStatus:
-    value: 000000
+  - value: 0
+  - value: 0
+  - value: 0
 --- !u!1 &1132819867
 GameObject:
   m_ObjectHideFlags: 0
@@ -10493,7 +10417,7 @@ MonoBehaviour:
   image: {fileID: 571480612}
   falseColor: {r: 1, g: 0, b: 0, a: 1}
   trueColor: {r: 0, g: 1, b: 0, a: 1}
-  nodeType: 0
+  nodeType: 1
 --- !u!222 &1159200897
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11388,6 +11312,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 281125075, guid: e5f1387d738f69e4e906daf1d1ed2467, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 281125075, guid: e5f1387d738f69e4e906daf1d1ed2467,
+        type: 3}
+    - target: {fileID: 281125076, guid: e5f1387d738f69e4e906daf1d1ed2467, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 281125076, guid: e5f1387d738f69e4e906daf1d1ed2467,
+        type: 3}
+    - target: {fileID: 281125077, guid: e5f1387d738f69e4e906daf1d1ed2467, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 281125077, guid: e5f1387d738f69e4e906daf1d1ed2467,
+        type: 3}
     - target: {fileID: 3460520108575279129, guid: e5f1387d738f69e4e906daf1d1ed2467,
         type: 3}
       propertyPath: m_Name
@@ -11485,7 +11424,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1257841792}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281125074}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d06b6ce013e040e4397364c33ac328b2, type: 3}
@@ -13691,7 +13630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.029548854, y: 0.08800001}
   m_AnchorMax: {x: 0.80033624, y: 0.91200006}
-  m_AnchoredPosition: {x: -1.6100197, y: 0.000015258789}
+  m_AnchoredPosition: {x: -1.6100159, y: 0.000015258789}
   m_SizeDelta: {x: -3.2145996, y: 0.00001335144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1428295906
@@ -17582,7 +17521,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 103.1306, y: 0}
+  m_SizeDelta: {x: 104.1835, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1780819105
 MonoBehaviour:
@@ -17611,7 +17550,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780819103}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -17846,7 +17785,7 @@ MonoBehaviour:
   image: {fileID: 1149637644}
   falseColor: {r: 1, g: 0, b: 0, a: 1}
   trueColor: {r: 0, g: 1, b: 0, a: 1}
-  nodeType: 0
+  nodeType: 2
 --- !u!1 &1809582439
 GameObject:
   m_ObjectHideFlags: 0
@@ -18627,7 +18566,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1257841792}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281125074}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8556a25e4812f340810dbc9cd8f6a25, type: 3}

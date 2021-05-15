@@ -34,13 +34,18 @@ public class UnityStatusActionClient : Element<DemonOLPApplication>
         _statusActionClient = new StatusActionClient(actionName, _rosConnector.RosSocket);
         _statusActionClient.Initialize();
 
-        _statusActionClient.reactOrder.ObserveEveryValueChanged(x => x.Value)
+        _statusActionClient.reactOrder
+            .ObserveEveryValueChanged(x => x.Value)
             .Subscribe(xs => UpdateModel(xs))
             .AddTo(this);
     }
 
+    [Button]
     public void UpdateModel(StatusResult result)
     {
+        if(result == null)
+            return;
+
         if(timeoutTimer != null)
             StopCoroutine(timeoutTimer);
         
@@ -49,8 +54,8 @@ public class UnityStatusActionClient : Element<DemonOLPApplication>
 
     IEnumerator TimeoutTimer()
     {
-        app.model.rosNodeStatus.Value[(int)nodeType] = true;
+        app.model.rosNodeStatus[(int)nodeType].Value = true;
         yield return new WaitForSeconds(timeoutSec);
-        app.model.rosNodeStatus.Value[(int)nodeType] = false;
+        app.model.rosNodeStatus[(int)nodeType].Value = false;
     }
 }

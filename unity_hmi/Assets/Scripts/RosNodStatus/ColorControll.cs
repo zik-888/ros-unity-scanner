@@ -19,9 +19,9 @@ public class ColorControll : Element<DemonOLPApplication>
 
     private void Start()
     {
-        app.model.rosNodeStatus
+        app.model.rosNodeStatus[(int)nodeType]
             .ObserveEveryValueChanged(x => x.Value)
-            .Subscribe(xs => ActiveConnect(xs[(int)nodeType]))
+            .Subscribe(xs => ActiveConnect(xs))
             .AddTo(this);
     }
 
@@ -38,7 +38,4 @@ public class ColorControll : Element<DemonOLPApplication>
                 break;
         }
     }
-    
-    
-
 }

@@ -28,7 +28,12 @@ public class DemonOLPModel : Model<DemonOLPApplication>
     public ReactiveProperty<bool> IsSelectScanArea = new ReactiveProperty<bool>(false);
     public ReactiveProperty<ScanArea> ScanArea = new ReactiveProperty<ScanArea>(new ScanArea());
 
-    public ReactiveProperty<bool[]> rosNodeStatus = new ReactiveProperty<bool[]>(new bool[] {false, false, false});
+    public ReactiveProperty<bool>[] rosNodeStatus = new ReactiveProperty<bool>[]
+    {
+        new ReactiveProperty<bool>(false), 
+        new ReactiveProperty<bool>(false), 
+        new ReactiveProperty<bool>(false)
+    };
     
 
     //public CommandModel[] commandModelsList;
