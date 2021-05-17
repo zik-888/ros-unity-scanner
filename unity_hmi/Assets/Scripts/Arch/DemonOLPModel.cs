@@ -8,6 +8,7 @@ using System;
 using System.Text;
 using System.IO;
 using Robots.RobotModel;
+using Scanner;
 
 public enum PathFormMethod { PointToPoint, PickMarching, DrawProjection };
 
@@ -16,7 +17,6 @@ public enum PathFormMethod { PointToPoint, PickMarching, DrawProjection };
 public class DemonOLPModel : Model<DemonOLPApplication>
 {
     public Material[] materials;
-
     
     
     public ReactiveProperty<SceneState> SceneState = new ReactiveProperty<SceneState>(new SceneState());
@@ -24,10 +24,9 @@ public class DemonOLPModel : Model<DemonOLPApplication>
     public ReactiveCollection<RobotModel> RobotModels = new ReactiveCollection<RobotModel>();
     public ReactiveCollection<BlankModel> BlankModels = new ReactiveCollection<BlankModel>();
     public ReactiveCollection<CommandModel> CommandModels = new ReactiveCollection<CommandModel>();
-
-    public ReactiveProperty<bool> IsSelectScanArea = new ReactiveProperty<bool>(false);
-    public ReactiveProperty<ScanArea> ScanArea = new ReactiveProperty<ScanArea>(new ScanArea());
-
+    
+    public ScannerModel ScannerModel = new ScannerModel();
+    
     public ReactiveProperty<bool>[] rosNodeStatus = new ReactiveProperty<bool>[]
     {
         new ReactiveProperty<bool>(false), 

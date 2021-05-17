@@ -17,7 +17,7 @@ public class BindScanArea : Element<DemonOLPApplication>
 
     private void Start()
     {
-        app.model.ScanArea
+        app.model.ScannerModel.ScanArea
                  .ObserveEveryValueChanged(x => x.Value)
                  .Subscribe(xs => SetScanningAreaView(xs))
                  .AddTo(this);
@@ -26,7 +26,7 @@ public class BindScanArea : Element<DemonOLPApplication>
     public void BindIsSelected(bool value)
     {
         DataLog.Log($"Plz select a scan area");
-        app.model.IsSelectScanArea.Value = value;
+        app.model.ScannerModel.DisplayScanArea.Value = value;
     }
 
     public void SetScanningAreaView(ScanArea value)

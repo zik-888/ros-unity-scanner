@@ -114,8 +114,8 @@ public class UnityScanningActionClient : Element<DemonOLPApplication>
 
     private void RegisterGoal()
     {
-        DataLog.Log($"{DateTime.Now.TimeOfDay}: {app.model.ScanArea.Value.ToScanningGoal()}");
-        _scanningActionClient.Order = app.model.ScanArea.Value.ToScanningGoal();
+        DataLog.Log($"{DateTime.Now.TimeOfDay}: {app.model.ScannerModel.ScanArea.Value.ToScanningGoal()}");
+        _scanningActionClient.Order = app.model.ScannerModel.ScanArea.Value.ToScanningGoal();
         
     }
 
