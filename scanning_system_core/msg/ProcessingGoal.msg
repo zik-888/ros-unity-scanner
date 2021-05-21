@@ -3,6 +3,6 @@
 shape_msgs/MeshTriangle[] triangles_CAD
 geometry_msgs/Point[] vertices_CAD
 
-geometry_msgs/Pose[] trajectory
+geometry_msgs/PoseArray[] trajectory
 int32 mode
 #int32 x1

@@ -2,5 +2,5 @@
 #result definition
 shape_msgs/MeshTriangle[] triangles_CAD
 geometry_msgs/Point[] vertices_CAD
-geometry_msgs/Pose[] trajectory
+geometry_msgs/PoseArray[] trajectory
 float32 error

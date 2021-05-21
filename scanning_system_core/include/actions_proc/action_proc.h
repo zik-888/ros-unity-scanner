@@ -108,6 +108,7 @@ public:
                 << "Size of Points:    " << SCAN_MODEL.Points.size() << std::endl
                 << "Size of Triangles: " << SCAN_MODEL.Faces.size() << std::endl;
 
+
       switch(goal->mode)
       {
       case ALIGN:
