@@ -118,7 +118,7 @@ namespace MeshSystem
 
                 foreach (var a in Surfaces)
                 {
-                    join.AddRange(a.triangles);
+                    join.AddRange(a.Triangles);
                 }
 
                 var queue = Triangles.Select(t => t.Index).Except(join);

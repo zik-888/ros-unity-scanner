@@ -41,7 +41,15 @@ namespace MeshSystem.MeshAddition
             else
                 return false;
         }
-
+        
+        public static bool StaticEquals(Vector3 vector1, Vector3 vector2)
+        {
+            if (Vector3.SqrMagnitude(vector1 - vector2) < 0.0001)
+                return true;
+            else
+                return false;
+        }
+        
         public int GetHashCode(Vector3 vector)
         {
             unchecked
@@ -53,7 +61,5 @@ namespace MeshSystem.MeshAddition
                 return hashCode;
             }
         }
-
-        
     }
 }

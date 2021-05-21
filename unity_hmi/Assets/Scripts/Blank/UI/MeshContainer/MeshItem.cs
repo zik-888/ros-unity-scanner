@@ -8,8 +8,13 @@ using UnityEngine.UI;
 using UniRx;
 using RosSharp.RosBridgeClient.MessageTypes.ScanningSystemCore;
 using System.Linq;
+using RosSharp;
+using RosSharp.RosBridgeClient.MessageTypes.Geometry;
 using Pose = RosSharp.RosBridgeClient.MessageTypes.Geometry.Pose;
 using Mesh = UnityEngine.Mesh;
+using Quaternion = RosSharp.RosBridgeClient.MessageTypes.Geometry.Quaternion;
+using Transform = RosSharp.RosBridgeClient.MessageTypes.Geometry.Transform;
+using Vector3 = UnityEngine.Vector3;
 
 public class MeshItem : Element<DemonOLPApplication>, ISelectHandler, IDeselectHandler
 {
@@ -17,79 +22,101 @@ public class MeshItem : Element<DemonOLPApplication>, ISelectHandler, IDeselectH
 
     public Text text;
     public RectTransform alignmentButton;
-    private int id;
+    private int _id;
 
     public bool selected = false;
 
     public BlankPose BlankPose { set; get; }
 
+    private UnityProcessingActionClient _processingClient;
+
     private void Start()
     {
-        app.model.BlankModels[id]
+        app.model.BlankModels[_id]
                  .ObserveEveryValueChanged(x => x.BlankPose)
                  .Subscribe(x => PoseChangeIntoModel(x))
                  .AddTo(this);
 
-        alignmentButton.gameObject.SetActive(app.model.BlankModels[id].type != BlankType.Scan);
+        alignmentButton.gameObject.SetActive(app.model.BlankModels[_id].type != BlankType.Scan);
+        
+        _processingClient = GameObject.Find("RosConnector").GetComponent<UnityProcessingActionClient>();
     }
 
     public void PoseAlignment()
     {
-        var client = GameObject.Find("RosConnector").GetComponent<UnityProcessingActionClient>();
-
         // triangles
-
-        var meshTriangleArray = TransferMethods.TraingleConvert(app.model.BlankModels[id].Mesh.triangles);
+        var meshTriangleArray = TransferMethods.TraingleConvert(app.model.BlankModels[_id].Mesh.triangles);
 
         // vertices
+        var pointArray = TransferMethods.VertexConvert(app.model.BlankModels[_id].Mesh.vertices);
 
-        var pointArray = TransferMethods.VertexConvert(app.model.BlankModels[id].Mesh.vertices);
-
-        // trajectory
-
+        // empty trajectory
         var trajectory = new Pose[] { };
 
-        client.SendGoal(new ProcessingGoal(meshTriangleArray, 
-                                           pointArray, 
-                                           trajectory, 
-                                           (int)ModeOfProcessing.ALIGN),
-                        PoseAlignmentResult);
+        _processingClient.SendGoal
+        (
+            new ProcessingGoal (meshTriangleArray, pointArray, trajectory, (int)ModeOfProcessing.ALIGN), 
+            PoseAlignmentResult
+        );
     }
 
     private void PoseAlignmentResult(ProcessingResult result)
     {
-        var mesh = new Mesh();
+        var mesh = new Mesh
+        {
+            vertices = TransferMethods.VertexConvert(result.vertices_CAD),
+            triangles = TransferMethods.TraingleConvert(result.triangles_CAD)
+        };
 
-        mesh.vertices = TransferMethods.VertexConvert(result.vertices_CAD);
-
-        mesh.triangles = TransferMethods.TraingleConvert(result.triangles_CAD);
-
-        app.model.BlankModels[id].BlankObject.GetComponent<MeshFilter>().mesh = mesh;
+        app.model.BlankModels[_id].BlankObject.GetComponent<MeshFilter>().mesh = mesh;
     }
 
-
-    public void Ros2UnityTransform()
+    public void CheckDeform()
     {
-        var vertices = app.model.BlankModels[id].Mesh.vertices;
+        
+    }
 
-        var mesh = new Mesh();
+    private void CheckDeformResult()
+    {
+        
+    }
 
-        int length = app.model.BlankModels[id].Mesh.triangles.Length;
+    public void ApplyDeform()
+    {
+        // triangles
+        var meshTriangleArray = TransferMethods.TraingleConvert(app.model.BlankModels[_id].Mesh.triangles);
 
-        var zTriangle = app.model.BlankModels[id].Mesh.triangles;
+        // vertices
+        var pointArray = TransferMethods.VertexConvert(app.model.BlankModels[_id].Mesh.vertices);
 
-        //// меняю в массиве 2 и 3 элемент местами
-        for (int i = 0; length / 3 > i; i++)
-        {
-            int temp = zTriangle[i * 3 + 1];
-            zTriangle[i * 3 + 1] = zTriangle[i * 3 + 2];
-            zTriangle[i * 3 + 2] = temp;
-        }
+        // trajectory
+        var trajectory = app.model.CommandModels
+            .Where(c => c.blankNum == _id)
+            .SelectMany(c => c.poses)
+            .Select(c => GetPose(c.Position, c.Rotation)).ToArray();
 
-        mesh.vertices = vertices.Select(p => RosSharp.TransformExtensions.Ros2Unity(p)).ToArray();
-        mesh.triangles = app.model.BlankModels[id].Mesh.triangles.Concat(zTriangle).ToArray();
+        _processingClient.SendGoal
+        (
+            new ProcessingGoal (meshTriangleArray, pointArray, trajectory, (int)ModeOfProcessing.DEFORM), 
+            ApplyDeformResult
+        );
+    }
+    
+    public void ApplyDeformResult(ProcessingResult result)
+    {
+        throw new Exception("ApplyDeformResult");
+    }
 
-        app.model.BlankModels[id].BlankObject.GetComponent<MeshFilter>().mesh = mesh;
+    public Pose GetPose(Vector3 position, Vector3 rotation)
+    {
+        var p = TransformExtensions.Unity2Ros(position);
+        var r = TransformExtensions.Unity2Ros(rotation);
+
+        return new Pose
+        (
+            new Point(p.x, p.y, p.z),
+            new Quaternion(r.x, r.y, r.z, 0)
+        );
     }
 
 
@@ -101,17 +128,17 @@ public class MeshItem : Element<DemonOLPApplication>, ISelectHandler, IDeselectH
 
 
     public void OnChangeBlankPose(BlankPose blankPose) 
-        => app.model.BlankModels[id].BlankPose = blankPose;
+        => app.model.BlankModels[_id].BlankPose = blankPose;
 
     public int Id 
     { 
         set 
         {
-            id = value;
+            _id = value;
             text.text = $"Blank: {value}";
-            name = $"MeshItem, {id}";
+            name = $"MeshItem, {_id}";
 
-            app.model.BlankModels[id].BlankObject.GetComponent<BlankController>().Id = id;
+            app.model.BlankModels[_id].BlankObject.GetComponent<BlankController>().Id = _id;
         }
     }
 
@@ -124,13 +151,13 @@ public class MeshItem : Element<DemonOLPApplication>, ISelectHandler, IDeselectH
 
     public void Remove()
     {
-        app.model.BlankModels.RemoveAt(id);
+        app.model.BlankModels.RemoveAt(_id);
 
         for(int i = 0; app.model.CommandModels.Count > i; i++)
         {
             if (app.model.CommandModels[i].type != CommandType.PtP)
             {
-                if (app.model.CommandModels[i].blankNum == id)
+                if (app.model.CommandModels[i].blankNum == _id)
                 {
                     app.model.CommandModels.Remove(app.model.CommandModels[i]);
                 }

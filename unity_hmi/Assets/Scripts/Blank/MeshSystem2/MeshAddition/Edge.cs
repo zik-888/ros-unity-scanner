@@ -71,5 +71,33 @@ namespace MeshSystem.MeshAddition
 
         }
     }
+    
+    class EdgeComparerOneVertex : IEqualityComparer<Edge>
+    {
+        public bool Equals(Edge edge1, Edge edge2)
+        {
+            if (edge1.v0.Position == edge2.v0.Position || edge1.v1.Position == edge2.v1.Position
+                || edge1.v1.Position == edge2.v0.Position || edge1.v0.Position == edge2.v1.Position)
+                return true;
+            else
+                return false;
+        }
+
+        public int GetHashCode(Edge edge)
+        {
+            unchecked
+            {
+                var hashCode = -731044709;
+                hashCode = hashCode * -1521134295 + EqualityComparer<int>.Default.GetHashCode((int)(edge.v0.Position.x * 100))
+                                                  + EqualityComparer<int>.Default.GetHashCode((int)(edge.v0.Position.y * 100))
+                                                  + EqualityComparer<int>.Default.GetHashCode((int)(edge.v0.Position.z * 100))
+                                                  + EqualityComparer<int>.Default.GetHashCode((int)(edge.v1.Position.x * 100))
+                                                  + EqualityComparer<int>.Default.GetHashCode((int)(edge.v1.Position.y * 100))
+                                                  + EqualityComparer<int>.Default.GetHashCode((int)(edge.v1.Position.z * 100));
+                return hashCode;
+            }
+
+        }
+    }
 
 }

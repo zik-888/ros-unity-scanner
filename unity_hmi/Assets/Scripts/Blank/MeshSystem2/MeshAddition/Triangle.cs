@@ -96,38 +96,44 @@ namespace MeshSystem.MeshAddition
 
 
 
-        public void SetLinkedTriangle()
-        {
-            var triangleBuf = GetVertexPosition;
+public void SetLinkedTriangle()
+{
+    var triangleBuf = GetVertexPosition;
 
-            var linkedTriangle = CMeshPool.GetMesh(MeshId)
-                                          .Triangles.Where(t => IsOneEdgeCommon(triangleBuf, t.GetVertexPosition))
-                                                    .Select(t => t.Index)
-                                                    .ToArray();
+    var linkedTriangle = CMeshPool
+        .GetMesh(MeshId).Triangles
+        .Where(t => IsOneEdgeCommon(triangleBuf, t.GetVertexPosition))
+        .Select(t => t.Index)
+        .ToArray();
 
-            if (linkedTriangle.Length != 3)
-                throw new Exception("Mesh is not loop");
+    if (linkedTriangle.Length != 3)
+        throw new Exception("Mesh is not loop");
 
-            this.linkedTriangle = linkedTriangle;
-        }
+    this.linkedTriangle = linkedTriangle;
+}
 
-        public static bool IsOneEdgeCommon(in Vector3[] thisTriangle, in Vector3[] anotherTriangle)
-        {
-            var countIntersection = thisTriangle.Intersect(anotherTriangle).Count();
-            return countIntersection == 2;
-        }
+public static bool IsOneEdgeCommon(in Vector3[] thisTriangle, in Vector3[] anotherTriangle)
+{
+    var countIntersection = thisTriangle.Intersect(anotherTriangle).Count();
+    return countIntersection == 2;
+}
 
-        public int[] GetLinkedAndSmallerAngleTriangle(float angle = 20f)
-        {
-            int mesh = MeshId;
-            Vector3 normal = GetNormal();
+public int[] GetLinkedTriangleWhithCommonSurface(float angle = 20f)
+{
+    int mesh = MeshId;
+    Vector3 normal = GetNormal();
 
-            var a = linkedTriangle.Where(i => Vector3.Angle(CMeshPool.GetMesh(mesh)
-                                                                     .Triangles[i]
-                                                                     .GetNormal(), normal) < angle);
+    var a = linkedTriangle.Where
+    (
+        i => Vector3.
+        Angle(CMeshPool
+            .GetMesh(mesh)
+            .Triangles[i]
+            .GetNormal(), normal) < angle
+    );
 
-            return a.ToArray();
-        }
+    return a.ToArray();
+}
 
 
         

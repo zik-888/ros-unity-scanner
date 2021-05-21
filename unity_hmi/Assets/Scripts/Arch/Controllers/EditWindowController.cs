@@ -43,7 +43,7 @@ public class EditWindowController : Element<DemonOLPApplication>
                 app.model.BlankModels[a].Mesh.triangles,
                 blank.transform);
 
-            //mesh.InitSurfaces();
+            mesh.InitSurfaces();
 
 
 
