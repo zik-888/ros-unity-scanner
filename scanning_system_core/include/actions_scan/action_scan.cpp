@@ -39,6 +39,44 @@ void ScanningAction::transformation(std::vector<double> *point)
     (*point)[2] = vf(2);
 }
 
+void ScanningAction::transformation_inv(std::vector<double> *point)
+{
+    Eigen::Matrix4d m;
+    Eigen::VectorXd v(4);
+    Eigen::VectorXd vf(4);
+
+    m(0,0) = -0.999129;
+    m(0,1) = 0.036617;
+    m(0,2) = -0.020016;
+    m(0,3) = 884.021545;
+
+    m(1,0) = -0.036543;
+    m(1,1) = -0.999324;
+    m(1,2) = -0.004048;
+    m(1,3) = -5.667044;
+
+    m(2,0) = -0.020150;
+    m(2,1) = -0.003313;
+    m(2,2) = 0.999792;
+    m(2,3) = -20.834656;
+
+    m(3,0) = 0.000000;
+    m(3,1) = 0.000000;
+    m(3,2) = 0.000000;
+    m(3,3) = 1.000000;
+
+    v(0) = (*point)[0];
+    v(1) = (*point)[1];
+    v(2) = (*point)[2];
+    v(3) = 1;
+
+    vf = m.inverse() * v;
+
+    (*point)[0] = vf(0);
+    (*point)[1] = vf(1);
+    (*point)[2] = vf(2);
+}
+
 /*void ScanningAction::executeCB(const scanning_system_core::ScanningGoalConstPtr &goal, SPolyModel *scan_model) // struct SPolyModel &scan_model
 {
     result_.vertices.clear();

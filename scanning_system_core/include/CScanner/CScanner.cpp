@@ -189,7 +189,7 @@ SPolyModel CScanner::scanning(actionlib::SimpleActionServer<scanning_system_core
     // init stream for write data
     std::ofstream out;
 
-    out.open("/home/ros-industrial/Desktop/real_scan.obj");//, std::ios::app);
+    out.open("/home/Desktop/real_scan.obj");//, std::ios::app);
     out << "o Object.1" << std::endl;
 
     // variable may be deleted
@@ -331,8 +331,8 @@ SPolyModel CScanner::scanning(actionlib::SimpleActionServer<scanning_system_core
                                     //    << scanner.profileBuffer[scanner.arrayIndex].z
                                     //    << std::endl;
 
-                                    if(scanner.profileBuffer[scanner.arrayIndex].z > 4 && (pos_tip.x + scanner.profileBuffer[scanner.arrayIndex].x) < 400
-                                            && (pos_tip.x + scanner.profileBuffer[scanner.arrayIndex].x) > 170)
+                                    if(scanner.profileBuffer[scanner.arrayIndex].z > 4 && (pos_tip.x + scanner.profileBuffer[scanner.arrayIndex].x) < 450
+                                            && (pos_tip.x + scanner.profileBuffer[scanner.arrayIndex].x) > 200)
                                     {
 
                                     out << "v "

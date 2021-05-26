@@ -76,7 +76,7 @@ void thStatusAction(ros::NodeHandle nh)
 
     while(true)
     {
-        //ROS_INFO("Zina loh");
+        ROS_INFO("I'M ALIVE");
         r.sleep();
     }
 }

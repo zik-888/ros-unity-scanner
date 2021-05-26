@@ -52,6 +52,7 @@ public:
   ~ScanningAction(){}
 
   void transformation(std::vector<double> *point);
+  void transformation_inv(std::vector<double> *point);
 
   void executeCB(const scanning_system_core::ScanningGoalConstPtr &goal, SPolyModel *scan_model)
   {
@@ -93,27 +94,30 @@ public:
       scanning_system_core::TrajectoryService srv_trajectory;
       srv_trajectory.response.answer = false;
 
-      //rotation
-      //float x1_rot = goal->x1*cos(PI) - goal->y1*sin(PI) - 890;
-      //float y1_rot = goal->y1*cos(PI) + goal->x1*sin(PI) - 890;
-
-      //float x2_rot = goal->x2*cos(PI) - goal->y2*sin(PI);
-      //float y2_rot = goal->y2*cos(PI) + goal->x2*sin(PI);
-
-      float x1_rot = -goal->x1 + 890;
-      float y1_rot = -goal->y1;
-
-      float x2_rot = -goal->x2 + 890;
-      float y2_rot = -goal->y2;
-
       std::cout << "FROM HMI:" << std::endl
                 << goal->x1 << " ; " << goal->y1 << std::endl
                 << goal->x2 << " ; " << goal->y2 << std::endl;
-      std::cout << "FROM HMI ROT:" << std::endl
-                << x1_rot << " ; " << y1_rot << std::endl
-                << x2_rot << " ; " << y2_rot << std::endl;
 
-      srv_trajectory = trajectory.TrajectoryForming(x1_rot, y1_rot, x2_rot, y2_rot);
+      // tranformation
+      std::vector<double> Point1_transform = {goal->x1, goal->y1, 0};
+      std::vector<double> Point2_transform = {goal->x2, goal->y2, 0};
+
+      transformation_inv(&Point1_transform);
+      transformation_inv(&Point2_transform);
+
+      //float x1_rot = -goal->x1 + 890;
+      //float y1_rot = -goal->y1;
+
+      //float x2_rot = -goal->x2 + 890;
+      //float y2_rot = -goal->y2;
+
+
+      std::cout << "FROM HMI TRANSFORM:" << std::endl
+                << Point1_transform[0] << " ; " << Point1_transform[1] << std::endl
+                << Point2_transform[0] << " ; " << Point2_transform[1] << std::endl;
+
+      //srv_trajectory = trajectory.TrajectoryForming(x1_rot, y1_rot, x2_rot, y2_rot);
+      srv_trajectory = trajectory.TrajectoryForming(Point1_transform[0], Point1_transform[1], Point2_transform[0], Point2_transform[1]);
       std::cout << "Size of srv_trajectory = " << srv_trajectory.request.rpose.size() << std::endl
                 << "first point = " << srv_trajectory.request.rpose[srv_trajectory.request.rpose.size()-2] << std::endl
                 << "last point = " << srv_trajectory.request.rpose[srv_trajectory.request.rpose.size()-1] << std::endl;

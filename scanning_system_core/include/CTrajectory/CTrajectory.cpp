@@ -31,34 +31,41 @@ scanning_system_core::TrajectoryService CTrajectory::TrajectoryForming(float x1,
     orientation.b = 0;
     orientation.c = -176.14;
 
-    float Overlap = 0.9;  //10% ovelap
-
-    float H = 460; // high of sensor   L = 780 mm - Laser line width
-    float L = 600; //  L = 780 mm - Laser line width
     // points of scanning area
-    std::vector<float> point_1 = {x1, y1, H};
-    std::vector<float> point_2 = {x2, y2, H};
+    std::vector<float> point_1 = {x1, y1, HeightOfScanner};
+    std::vector<float> point_2 = {x2, y2, HeightOfScanner};
 
-    std::vector<float> point_3 = {x1, y2, H};
-    std::vector<float> point_4 = {x2, y1, H};
+    std::vector<float> point_3 = {x1, y2, HeightOfScanner};
+    std::vector<float> point_4 = {x2, y1, HeightOfScanner};
 
     float a = abs(x2 - x1);
     float b = abs(y2 - y1);
+    std::cout << "(x1, y1) = " << x1 << "," << y1 << std::endl;
+    std::cout << "(x2, y2) = " << x2 << "," << y2 << std::endl;
 
     //int count = round(b/L);
-    int count = round(a/L);
+    int count = round(a/LeightOfLaserLine);
     if(count == 0) count = 1;
 
     if(count == 1)
     {
         // 2 points of trajectory
         std::cout << " points: " << count * 2 << std::endl;
+        if(x1 > x2)
+        {
+            ScanTrajectory.push_back({x2 + a/2, y2, HeightOfScanner});
+            ScanTrajectory.push_back({x2 + a/2, y1, HeightOfScanner});
+        }
+        else
+        {
+            ScanTrajectory.push_back({x1 + a/2, y2, HeightOfScanner});
+            ScanTrajectory.push_back({x1 + a/2, y1, HeightOfScanner});
+        }
 
         //ScanTrajectory.push_back({x1, b/2, H});
         //ScanTrajectory.push_back({x2, b/2, H});
 
-        ScanTrajectory.push_back({x2 + a/2, y2, H});
-        ScanTrajectory.push_back({x2 + a/2, y1, H});
+
 
     }
     else
@@ -70,13 +77,13 @@ scanning_system_core::TrajectoryService CTrajectory::TrajectoryForming(float x1,
         std::vector<std::vector<float>> FirstPoints;
         std::vector<std::vector<float>> SecondPoints;
 
-        FirstPoints.push_back({x1, y1 + L/2, H});
-        SecondPoints.push_back({x2, y1 + L/2, H});
+        FirstPoints.push_back({x1, y1 + LeightOfLaserLine/2, HeightOfScanner});
+        SecondPoints.push_back({x2, y1 + LeightOfLaserLine/2, HeightOfScanner});
 
         for(int i = 0; i < count - 1; i++)
         {
-            FirstPoints.push_back({x1, FirstPoints[i][1] + L, H});
-            SecondPoints.push_back({x2, SecondPoints[i][1] + L, H});
+            FirstPoints.push_back({x1, FirstPoints[i][1] + LeightOfLaserLine, HeightOfScanner});
+            SecondPoints.push_back({x2, SecondPoints[i][1] + LeightOfLaserLine, HeightOfScanner});
         }
 
         for (int i = 0; i < FirstPoints.size(); i++)
