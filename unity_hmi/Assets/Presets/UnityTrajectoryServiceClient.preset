@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UnityTrajectoryServiceClient
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: d06b6ce013e040e4397364c33ac328b2,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: response
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.Array.size
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.Array.data[0].x
+    value: 244.05
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.Array.data[0].y
+    value: 9.32
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.Array.data[0].z
+    value: 682.44
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.Array.data[1].x
+    value: 64.86
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.Array.data[1].y
+    value: -185.24
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.Array.data[1].z
+    value: 598.4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.Array.data[2].x
+    value: 293.43
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.Array.data[2].y
+    value: -37.96
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.Array.data[2].z
+    value: 470.51
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.Array.size
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.Array.data[0].x
+    value: 163.76
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.Array.data[0].y
+    value: 10.71
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.Array.data[0].z
+    value: 178.07
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.Array.data[0].w
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.Array.data[1].x
+    value: 101.07
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.Array.data[1].y
+    value: -61.28
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.Array.data[1].z
+    value: -107.73
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.Array.data[1].w
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.Array.data[2].x
+    value: -107.15
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.Array.data[2].y
+    value: -51.32
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.Array.data[2].z
+    value: -128.25
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.Array.data[2].w
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: serviceName
+    value: HMI_srv
+    objectReference: {fileID: 0}
