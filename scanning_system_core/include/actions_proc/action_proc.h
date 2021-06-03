@@ -78,7 +78,7 @@ public:
                                      goal->triangles_CAD[i].vertex_indices[2]});
       }
 
-      std::ofstream out10;
+      /*std::ofstream out10;
       out10.open("/home/ros-industrial/Desktop/CAD_MODEL.obj");//, std::ios::app);
       out10 << "o Object.1" << std::endl;
 
@@ -96,18 +96,7 @@ public:
                << CAD_MODEL.Faces[c][0] + 1 << " "
                << CAD_MODEL.Faces[c][1] + 1 << " "
                << CAD_MODEL.Faces[c][2] + 1 << std::endl;
-      }
-
-      std::cout << "***********************" << std::endl
-                << "CAD_MODEL: " << std::endl
-                << "Size of Points:    " << CAD_MODEL.Points.size() << std::endl
-                << "Size of Triangles: " << CAD_MODEL.Faces.size() << std::endl;
-
-      std::cout << "**********************" << std::endl
-                << "SCAN_MODEL: " << std::endl
-                << "Size of Points:    " << SCAN_MODEL.Points.size() << std::endl
-                << "Size of Triangles: " << SCAN_MODEL.Faces.size() << std::endl;
-
+      }*/
 
       switch(goal->mode)
       {
@@ -140,15 +129,15 @@ public:
                 //ROS_INFO("x = %f, y = %f, z = %f", result_.vertices[j].x, result_.vertices[j].y, result_.vertices[j].z);
             }
 
-            for(int k = 0; k < CAD_MODEL_ALIGNED.Faces.size(); k++)
+            /*for(int k = 0; k < CAD_MODEL_ALIGNED.Faces.size(); k++)
             {
                 result_.ProcessingResult_::triangles_CAD.push_back({});
-                result_.triangles_CAD[k].vertex_indices[0] = CAD_MODEL_ALIGNED.Faces[k][0] + 1;
-                result_.triangles_CAD[k].vertex_indices[1] = CAD_MODEL_ALIGNED.Faces[k][1] + 1;
-                result_.triangles_CAD[k].vertex_indices[2] = CAD_MODEL_ALIGNED.Faces[k][2] + 1;
+                result_.triangles_CAD[k].vertex_indices[0] = CAD_MODEL_ALIGNED.Faces[k][0]; // + 1;
+                result_.triangles_CAD[k].vertex_indices[1] = CAD_MODEL_ALIGNED.Faces[k][1]; // + 1;
+                result_.triangles_CAD[k].vertex_indices[2] = CAD_MODEL_ALIGNED.Faces[k][2]; // + 1;
 
                 //ROS_INFO("triangle [%d; %d; %d]", result_.triangles[k].vertex_indices[0],result_.triangles[k].vertex_indices[1],result_.triangles[k].vertex_indices[2]);
-            }
+            }*/
             //result_.trajectory = ...;
             result_.error = ERROR;
             ROS_INFO("%s: Align is succeeded", action_name_.c_str());
@@ -156,7 +145,7 @@ public:
             // set the action state to succeeded
             as_.setSucceeded(result_);
 
-            std::ofstream out9;
+            /*std::ofstream out9;
             out9.open("/home/ros-industrial/Desktop/aligned_cad_hui.obj");//, std::ios::app);
             out9 << "o Object.1" << std::endl;
 
@@ -174,7 +163,7 @@ public:
                      << CAD_MODEL_ALIGNED.Faces[c][0] + 1 << " "
                      << CAD_MODEL_ALIGNED.Faces[c][1] + 1 << " "
                      << CAD_MODEL_ALIGNED.Faces[c][2] + 1 << std::endl;
-            }
+            }*/
           }
 
           break;

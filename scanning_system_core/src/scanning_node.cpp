@@ -6,6 +6,7 @@
 
 #include <actions_scan/action_scan.h>
 #include <actions_proc/action_proc.h>
+#include <actions_align/action_align.h>
 
 #include <CScanner/CScanner.h>
 #include <actions_status/action_status.h>
@@ -69,14 +70,15 @@ void ServiceGetPose(ros::NodeHandle nh)
     loop_rate.sleep();
 }
 
-void thStatusAction(ros::NodeHandle nh)
+void thStatusAction(ros::NodeHandle nh, SPolyModel *scan_model)
 {
+    AlignAction align_action("align_node", nh, &(*scan_model));
     ros::Rate r(1);
     StatusAction status_action("status_node", nh);
 
     while(true)
     {
-        ROS_INFO("I'M ALIVE");
+        // ROS_INFO("I'M ALIVE");
         r.sleep();
     }
 }
@@ -100,16 +102,21 @@ int main(int argc, char* argv[])
 
     SPolyModel SCAN_MODEL;
 
-    std::thread thStatus(thStatusAction, nh);
+    std::thread thStatus(thStatusAction, nh, &SCAN_MODEL);
     //struct SPolyModel SCAN_MODEL;
 
     //Action server init
     ScanningAction scanning_action("scanning_node", nh, &SCAN_MODEL);
-    ProcessingAction proc_action("proc_node", nh, &SCAN_MODEL);
+    // ProcessingAction proc_action("proc_node", nh, &SCAN_MODEL);
+    // AlignAction align_action("align_node", nh, &SCAN_MODEL);
+
     // // // StatusAction status_action("status_node", nh);
 
     // Topic status init
     // status_pub = nh.advertise<scanning_system_core::Status>("status_of_scan_system", 1000);
+    //CScanner scanner2;
+    //scanner2.init(scanner2.status, scanner2.api, scanner2.apiLib,
+    //             scanner2.system, scanner2.sensor, scanner2.ipAddress);
     scanning_system_core::Status statusMsg;
 
     statusMsg.status = 0;

@@ -66,6 +66,9 @@ int main (int argc, char **argv)
   ROS_INFO("Action server started, sending goal.");
   // send a goal to the action
   scanning_system_core::ScanningGoal goal;
+  //scanning_system_core::ProcessingGoal goal_pr;
+
+  
   //scanning_system_core::ScanningResultConstPtr result_;
 
 

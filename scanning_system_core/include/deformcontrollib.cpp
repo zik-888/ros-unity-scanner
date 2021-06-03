@@ -26,6 +26,7 @@
 #include "vector"
 #include <math.h>
 #include "stdlib.h"
+#include <Eigen/Eigen>
 
 #define PI 3.14159265359
 
@@ -521,9 +522,9 @@ SPolyModel ICP(SPolyModel *reference_model, SPolyModel *aligned_model)
 
     pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
     // Устанавливаем максимальное расстояние соответствия
-    icp.setMaxCorrespondenceDistance(1000);
+    icp.setMaxCorrespondenceDistance(1500);
     // Устанавливаем максимальное количество итераций (критерий 1)
-    icp.setMaximumIterations(20000);
+    icp.setMaximumIterations(10000);
     // Устанавливаем преобразование эпсилон (критерий 2)
     icp.setTransformationEpsilon(1e-8);
     // Устанавливаем эпсилон евклидовой разности расстояний (критерий 3)
@@ -558,6 +559,93 @@ SPolyModel ICP(SPolyModel *reference_model, SPolyModel *aligned_model)
     std::cout << icp.getFinalTransformation() << std::endl;
 
     return output_model;
+
+}
+
+Eigen::Matrix<float, 4, 4> ICP(SPolyModel *reference_model, SPolyModel *aligned_model, int mode)
+{
+    pcl::PointCloud<pcl::PointXYZ>::Ptr reference_cloud (new pcl::PointCloud<pcl::PointXYZ>);
+    pcl::PointCloud<pcl::PointXYZ>::Ptr aligned_cloud (new pcl::PointCloud<pcl::PointXYZ>);
+
+    pcl::PointCloud<pcl::PointXYZ> output_cloud;
+    SPolyModel output_model;
+
+    // Generate REFERENCE pointcloud data
+    reference_cloud->width = (*reference_model).Points.size();
+    reference_cloud->height = 1;
+    reference_cloud->points.resize(reference_cloud->width * reference_cloud->height);
+
+    std::cout << "---------------------" << std::endl
+              << "REFERENCE: " << std::endl
+              << "Points model size = " << (*reference_model).Points.size() << std::endl
+              << "Points cloud size = " << reference_cloud->size() << std::endl;
+
+    for (std::size_t i = 0; i < reference_cloud->size(); ++i)
+    {
+        (*reference_cloud)[i].x = (*reference_model).Points[i][0];
+        (*reference_cloud)[i].y = (*reference_model).Points[i][1];
+        (*reference_cloud)[i].z = (*reference_model).Points[i][2];
+    }
+
+    // Generate ALIGNED pointcloud data
+    aligned_cloud->width = (*aligned_model).Points.size();
+    aligned_cloud->height = 1;
+    aligned_cloud->points.resize(aligned_cloud->width * aligned_cloud->height);
+
+    std::cout << "---------------------" << std::endl
+              << "ALIGNED: " << std::endl
+              << "Points model size = " << (*aligned_model).Points.size() << std::endl
+              << "Points cloud size = " << aligned_cloud->size() << std::endl;
+
+    for (std::size_t i = 0; i < aligned_cloud->size(); ++i)
+    {
+        (*aligned_cloud)[i].x = (*aligned_model).Points[i][0];
+        (*aligned_cloud)[i].y = (*aligned_model).Points[i][1];
+        (*aligned_cloud)[i].z = (*aligned_model).Points[i][2];
+    }
+
+
+    pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
+    // Устанавливаем максимальное расстояние соответствия
+    icp.setMaxCorrespondenceDistance(1500);
+    // Устанавливаем максимальное количество итераций (критерий 1)
+    icp.setMaximumIterations(10000);
+    // Устанавливаем преобразование эпсилон (критерий 2)
+    icp.setTransformationEpsilon(1e-8);
+    // Устанавливаем эпсилон евклидовой разности расстояний (критерий 3)
+    icp.setEuclideanFitnessEpsilon(1e-8);
+
+
+
+    // Set the input source and target
+    icp.setInputCloud(aligned_cloud);
+    icp.setInputTarget(reference_cloud);
+
+    icp.align(output_cloud);
+
+
+
+    for(std::size_t i = 0; i < output_cloud.size(); i++)
+    {
+        output_model.Points.push_back({output_cloud[i].x, output_cloud[i].y, output_cloud[i].z});
+    }
+
+    output_model.Faces = (*aligned_model).Faces;
+
+    std::cout << "---------------------" << std::endl
+              << "FINAL ICP: " << std::endl
+              << "Output cloud size = " << output_cloud.size() << std::endl
+              << "Output model points size = " << output_model.Points.size() << std::endl
+              << "Output model faces size = " << output_model.Faces.size() << std::endl;
+
+    std::cout << "has converged:" << icp.hasConverged() << " score: " <<
+              icp.getFitnessScore() << std::endl;
+    //Output the final transformation matrix (4x4)
+
+    Eigen::Matrix<float, 4, 4> matrix = icp.getFinalTransformation();
+    std::cout << matrix << std::endl;
+
+    return matrix;
 
 }
 

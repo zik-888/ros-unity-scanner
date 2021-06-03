@@ -57,6 +57,7 @@ bool CScanner::init(kStatus &status, kAssembly &api, kAssembly &apiLib, GoSystem
             ROS_INFO("Discovers sensor %d with IP %s\n", GoSensor_Id(sensor), addressString);
         }
     }
+    return true;
 }
 
 void CScanner::configure()
@@ -189,7 +190,7 @@ SPolyModel CScanner::scanning(actionlib::SimpleActionServer<scanning_system_core
     // init stream for write data
     std::ofstream out;
 
-    out.open("/home/Desktop/real_scan.obj");//, std::ios::app);
+    out.open("/home/lab45/Рабочий стол/real_scan.obj");//, std::ios::app);
     out << "o Object.1" << std::endl;
 
     // variable may be deleted
@@ -406,11 +407,7 @@ SPolyModel CScanner::scanning(actionlib::SimpleActionServer<scanning_system_core
     {
         printf("Error: GoSensor_Stop:%d\n", scanner.status);
     }
-
-    // destroy handles
-    GoDestroy(scanner.system);
-    GoDestroy(scanner.api);
-
+    // destroy
     std::vector<std::vector<std::vector<double>>> Profiles_new;
     std::vector<std::vector<float>>               RobotPosition_new;
 
@@ -418,7 +415,6 @@ SPolyModel CScanner::scanning(actionlib::SimpleActionServer<scanning_system_core
 
     for(int i = 0; i < Profiles.size(); i++)
     {
-
         if(Profiles[i].size() != 0)
         {
             Profiles_new.push_back(Profiles[i]);
@@ -449,6 +445,11 @@ SPolyModel CScanner::scanning(actionlib::SimpleActionServer<scanning_system_core
 
     ROS_INFO("succeeded 3");
     ROS_INFO("Scanned succeeded!");
+
+    // destroy handles
+    GoDestroy(scanner.system);
+    GoDestroy(scanner.api);
+
     return scan_model.model;
 }
 

@@ -48,7 +48,8 @@ enum StatusOfSystem
     ALIGN_MODE,
     DEFROM_MODE,
     ALIGN_AND_DEFORM_MODE,
-    PROCESSING_SUCCESS
+    PROCESSING_SUCCESS,
+    ALIGN_ERROR
     // ... e.t.
 };
 

@@ -60,6 +60,7 @@ add_action_files(
   FILES Scanning.action
         Processing.action
         Status.action
+        Align.action
 )
 
 
@@ -121,6 +122,7 @@ include_directories(
   include/actions_scan
   include/actions_proc
   include/actions_status
+  include/actions_align
   include/CScanner
   include/CTrajectory
   include/CPolyModel
@@ -141,6 +143,7 @@ add_executable(add_two_ints_client src/add_two_ints_client.cpp)
 ##add_subdirectory(include)
 add_subdirectory(include/actions_scan)
 add_subdirectory(include/actions_proc)
+add_subdirectory(include/actions_align)
 add_subdirectory(include/actions_status)
 add_subdirectory(include/CScanner)
 add_subdirectory(include/CTrajectory)

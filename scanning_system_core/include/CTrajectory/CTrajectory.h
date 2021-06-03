@@ -10,7 +10,7 @@
 class CTrajectory
 {
 private:
-    float HeightOfScanner = 460; // high of sensor
+    float HeightOfScanner = 470; // high of sensor
     float LeightOfLaserLine = 400; // L = 460 mm - Laser line width
     float Overlap = 0.9;  //10% ovelap
 

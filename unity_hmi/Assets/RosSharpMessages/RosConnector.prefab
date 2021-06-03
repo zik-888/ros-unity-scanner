@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3460520108575279128}
   - component: {fileID: 8373071205246137229}
   - component: {fileID: 3460520108575279133}
-  - component: {fileID: 3460520108575279135}
   - component: {fileID: 3460520108575279134}
   - component: {fileID: 4566782975918298343}
   - component: {fileID: 281125075}
@@ -99,22 +98,6 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   actionName: scanning_node
---- !u!114 &3460520108575279135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3460520108575279129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81cf608ff18223041b6a489cb9b4e1e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Topic: status_of_scan_system
-  TimeStep: 0
-  errorcode: 
-  status: 0
 --- !u!114 &3460520108575279134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +208,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  actionName: 
+  actionName: status_node
   nodeType: 2
   timeoutSec: 1
 --- !u!114 &281125077

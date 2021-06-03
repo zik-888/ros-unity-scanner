@@ -154,22 +154,14 @@ public:
       }
       if(success)
       {
-          ROS_WARN("Success. Send Model");
           feedback_.status = SCANNING_SUCCESS;
           as_.publishFeedback(feedback_);
 
           for(int j = 0; j < (*scan_model).Points.size(); j++)
           {
               result_.ScanningResult_::vertices.push_back({});
-              //result_.vertices[j].x = scan_model.Points[j][0];
-              //result_.vertices[j].y = scan_model.Points[j][1];
-              SPoint mitsubishiPos;
-              mitsubishiPos.x = 890 - 6.2;
-              mitsubishiPos.y = - 19.4;
-              mitsubishiPos.z = - 27.66;
 
               transformation(&((*scan_model).Points[j]));
-
 
               result_.vertices[j].x = (*scan_model).Points[j][0];
               result_.vertices[j].y = (*scan_model).Points[j][1];
