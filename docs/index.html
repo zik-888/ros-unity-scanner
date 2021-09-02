@@ -1,0 +1,139 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Frank25Rus 
+Divelix
+/
+OmniCar
+1
+0
+0
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+OmniCar/index.html
+@Divelix
+Divelix Fixed header for low width
+Latest commit a343f32 on 6 Jul
+ History
+ 1 contributor
+96 lines (89 sloc)  3.77 KB
+  
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" type="image/png" href="res/favicon.png">
+    <title>OmniCar</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="title-block">
+            <h1>OmniCar</h1>
+            <h3>Open source project of omniwheel platform with computer vision system</h3>
+        </div>
+        <div class="github-blocks">
+            <a class="github-block" href="https://github.com/industrial-robotics-lab/OmniCar-arduino" target="_blank">
+                <div class="icon">
+                    <img src="res/arduino.svg">
+                </div>
+                <h3>Arduino</h3>
+                <p>This repository contains code for Arduino MEGA board that solves kinematics of omni wheeled platform
+                    and controls DC motors</p>
+            </a>
+            <a class="github-block" href="https://github.com/industrial-robotics-lab/OmniCar-rpi" target="_blank">
+                <div class="icon">
+                    <img src="res/raspberry-pi.svg">
+                </div>
+                <h3>Raspberry Pi</h3>
+                <p>This repository contains code for Raspberry Pi that runs ORB-SLAM2 and communicates with Arduino and
+                    remote GUI program
+                    <br>
+                    <b>Alternative:</b> 
+                    <object>
+                        <a href="https://github.com/industrial-robotics-lab/OmniCar-noslam" target="_blank">Raspberry Pi code without ORB-SLAM2</a>
+                    </object>
+                </p>
+            </a>
+            <a class="github-block" href="https://github.com/industrial-robotics-lab/OmniCar-gui" target="_blank">
+                <div class="icon">
+                    <img src="res/python.svg">
+                </div>
+                <h3>GUI</h3>
+                <p>This repository contains code for user interface that allows to set desired velocity and see status
+                    of computer vision in real time</p>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="showcase">
+            <h2>Showcase</h2>
+            <div class="showcase-body">
+                <div class="showcase-description">
+                    <p>In this video, the platform is controlled via GUI widgets from remote computer.</p>
+                    <p>Left part of GUI contains touchpad widget that allows to set desired linear velocity and slider that allows to set angular velocity.</p>
+                    <p>Central part of GUI shows video stream from ORB-SLAM2 in real-time.</p>
+                    <p>Right part of GUI shows wheel odometry estimation</p>
+                </div>
+                <div class="showcase-video">
+                    <!-- <video preload="metadata" muted loop controls>
+                        <source src="res/showcase.mp4" type="video/mp4">
+                        Your browser does not support video tag.
+                    </video> -->
+                    <!-- <iframe src="https://youtu.be/Zi4ehyMotkc"></iframe> -->
+                    <iframe src="https://www.youtube.com/embed/Zi4ehyMotkc"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="hardware">
+            <h2>Hardware</h2>
+            <img src="res/hardware.png">
+        </section>
+
+        <section class="software">
+            <h2>Software</h2>
+            <img src="res/software.svg">
+        </section>
+    </main>
+
+    <footer>
+        <div class="itmo_logo">
+            <img src="res/itmo_logo_line.png">
+        </div>
+        <div class="author_contacts">
+            <p>
+                <b>Author:</b> Sergei Sergienko<br>
+                <b>Email:</b> divelix1@gmail.com<br>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
