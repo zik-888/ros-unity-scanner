@@ -15,7 +15,7 @@ namespace RosSharp.RosBridgeClient.MessageTypes.MyPkg
 {
     public class ScanPositionServiceResponse : Message
     {
-        public const string RosMessageName = "my_pkg/ScanPositionService";
+        public const string RosMessageName = "ros_robotics_interface/ScanPositionService";
 
         public Pose artur_scan_pose { get; set; }
 

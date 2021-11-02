@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <QtDebug>
-#include <my_pkg/TrajectoryService.h>
-#include <my_pkg/ScanPositionService.h>
+#include <ros_robotics_interface/TrajectoryService.h>
+#include <ros_robotics_interface/ScanPositionService.h>
 #include <manipulator.h>
 
 
@@ -25,14 +25,14 @@ int main(int argc, char **argv)
   ros::NodeHandle nh;
   qDebug() << "Hello world QTDEBUG node 3";
 
-  ros::ServiceClient client = nh.serviceClient<my_pkg::TrajectoryService>("Scan_srv");
-  ros::ServiceClient client2 = nh.serviceClient<my_pkg::TrajectoryService>("HMI_srv");
-  ros::ServiceClient client3 = nh.serviceClient<my_pkg::ScanPositionService>("Scan_Pos_srv");
+  ros::ServiceClient client = nh.serviceClient<ros_robotics_interface::TrajectoryService>("Scan_srv");
+  ros::ServiceClient client2 = nh.serviceClient<ros_robotics_interface::TrajectoryService>("HMI_srv");
+  ros::ServiceClient client3 = nh.serviceClient<ros_robotics_interface::ScanPositionService>("Scan_Pos_srv");
 
 
-  my_pkg::TrajectoryService srv;
-  my_pkg::TrajectoryService srv2;
-  my_pkg::ScanPositionService srv3;
+  ros_robotics_interface::TrajectoryService srv;
+  ros_robotics_interface::TrajectoryService srv2;
+  ros_robotics_interface::ScanPositionService srv3;
   //srv.request.rpose.reserve(2);
   //srv.request.rpose[0] = set_point(0, -0.25, 1.42,0,0,0);
   //srv.request.rpose[1] = set_point(0, 0.325, 1.42,0,0,0);

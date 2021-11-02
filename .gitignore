@@ -1,7 +1,7 @@
 cmake-build-debug/
 scanning_system_core/delaunator/
 scanning_system_core/cmake-build-debug/
-my_pkg/cmake-build-debug/
+ros_robotics_interface/cmake-build-debug/
 .idea/
 
 CMakeLists.txt.user

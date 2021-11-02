@@ -13,7 +13,7 @@ namespace RosSharp.RosBridgeClient.MessageTypes.MyPkg
 {
     public class TrajectoryServiceResponse : Message
     {
-        public const string RosMessageName = "my_pkg/TrajectoryService";
+        public const string RosMessageName = "ros_robotics_interface/TrajectoryService";
 
         public bool answer { get; set; }
 

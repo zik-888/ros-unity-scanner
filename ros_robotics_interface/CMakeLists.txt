@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(my_pkg)
+project(ros_robotics_interface)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 
@@ -70,7 +70,7 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES my_pkg
+#  LIBRARIES ros_robotics_interface
 #  CATKIN_DEPENDS roscpp
 CATKIN_DEPENDS roscpp std_msgs visualization_msgs
 #  DEPENDS system_lib
@@ -98,7 +98,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/my_pkg.cpp
+#   src/${PROJECT_NAME}/ros_robotics_interface.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -109,7 +109,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/my_pkg_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/ros_robotics_interface_node.cpp)
 #add_executable(ros_test_node src/test_node.cpp include/kukavarproxy_interface.cpp include/eki_interface.cpp )
 
 #add_executable(ros_test_node src/test_node.cpp )

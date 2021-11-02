@@ -15,7 +15,7 @@ namespace RosSharp.RosBridgeClient.MessageTypes.MyPkg
 {
     public class TrajectoryServiceRequest : Message
     {
-        public const string RosMessageName = "my_pkg/TrajectoryService";
+        public const string RosMessageName = "ros_robotics_interface/TrajectoryService";
 
         public int motion_type { get; set; }
         public Pose[] rpose { get; set; }

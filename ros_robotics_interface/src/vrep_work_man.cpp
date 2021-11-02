@@ -6,7 +6,7 @@
 #include <thread>
 
 
-#include <my_pkg/TrajectoryService.h>
+#include <ros_robotics_interface/TrajectoryService.h>
 
 #include <manipulator.h>
 
@@ -14,7 +14,7 @@ std::vector<geometry_msgs::Pose> Trajectory_vector;
 
 Vrep_man IRB_140_2;
 
-bool HMI_mes_processing(my_pkg::TrajectoryService::Request  &req, my_pkg::TrajectoryService::Response &res)
+bool HMI_mes_processing(ros_robotics_interface::TrajectoryService::Request  &req, ros_robotics_interface::TrajectoryService::Response &res)
 {
     ROS_INFO("GOT HMI REQUEST");
 

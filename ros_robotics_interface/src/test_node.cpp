@@ -4,7 +4,7 @@
 #include <QThread>
 #include <vector>
 
-#include <my_pkg/TrajectoryService.h>
+#include <ros_robotics_interface/TrajectoryService.h>
 
 #define DO_NOT_USE_SHARED_MEMORY 1
 #define NON_MATLAB_PARSING 1
@@ -383,7 +383,7 @@ Vrep_man IRB_140;
 Vrep_man2 IRB_140_2;
 
 
-bool HMI_mes_processing(my_pkg::TrajectoryService::Request  &req, my_pkg::TrajectoryService::Response &res)
+bool HMI_mes_processing(ros_robotics_interface::TrajectoryService::Request  &req, ros_robotics_interface::TrajectoryService::Response &res)
 {
     ROS_INFO("GOT HMI REQUEST");
     int number_of_points = req.rpose.size();
@@ -405,7 +405,7 @@ bool HMI_mes_processing(my_pkg::TrajectoryService::Request  &req, my_pkg::Trajec
 }
 
 
-bool Scan_mes_processing(my_pkg::TrajectoryService::Request  &req, my_pkg::TrajectoryService::Response &res)
+bool Scan_mes_processing(ros_robotics_interface::TrajectoryService::Request  &req, ros_robotics_interface::TrajectoryService::Response &res)
 {
     ROS_INFO("GOT SCAN REQUEST");
     //int number_of_points = sizeof (req.rpose)/sizeof (geometry_msgs::Pose);

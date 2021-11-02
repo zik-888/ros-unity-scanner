@@ -1,6 +1,6 @@
 #include <ros/ros.h>
-#include <my_pkg/TrajectoryService.h>
-#include <my_pkg/ScanPositionService.h>
+#include <ros_robotics_interface/TrajectoryService.h>
+#include <ros_robotics_interface/ScanPositionService.h>
 #include <mitsubishi/mitsubishi.h>
 #include <thread>
 
@@ -24,7 +24,7 @@ geometry_msgs::Pose set_point(float x,float y,float z,float a,float b,float c)
     return point;
 }
 
-bool kuka_mes_processing(my_pkg::TrajectoryService::Request  &req, my_pkg::TrajectoryService::Response &res)
+bool kuka_mes_processing(ros_robotics_interface::TrajectoryService::Request  &req, ros_robotics_interface::TrajectoryService::Response &res)
 {
     ROS_INFO("GOT HMI REQUEST");
 
@@ -50,7 +50,7 @@ bool kuka_mes_processing(my_pkg::TrajectoryService::Request  &req, my_pkg::Traje
     //return true;
 }
 
-bool Scan_position_service_callbackfunction(my_pkg::ScanPositionService::Request  &req, my_pkg::ScanPositionService::Response &res)
+bool Scan_position_service_callbackfunction(ros_robotics_interface::ScanPositionService::Request  &req, ros_robotics_interface::ScanPositionService::Response &res)
 {
     ROS_INFO("GOT SCAN POSITION REQUEST");
 

@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <QtDebug>
-#include <my_pkg/TrajectoryService.h>
-#include <my_pkg/ScanPositionService.h>
+#include <ros_robotics_interface/TrajectoryService.h>
+#include <ros_robotics_interface/ScanPositionService.h>
 #include <manipulator.h>
 
 
@@ -25,14 +25,14 @@ int main(int argc, char **argv)
 
   ROS_INFO("KUKA Service node started!");
 
-  ros::ServiceClient client1 = nh.serviceClient<my_pkg::TrajectoryService>("HMI_srv");
-  ros::ServiceClient client2 = nh.serviceClient<my_pkg::ScanPositionService>("Scan_Pos_srv");
-  ros::ServiceClient client3 = nh.serviceClient<my_pkg::TrajectoryService>("KUKA_HMI_srv");
-  ros::ServiceClient client4 = nh.serviceClient<my_pkg::ScanPositionService>("KUKA_Pos_srv");
+  ros::ServiceClient client1 = nh.serviceClient<ros_robotics_interface::TrajectoryService>("HMI_srv");
+  ros::ServiceClient client2 = nh.serviceClient<ros_robotics_interface::ScanPositionService>("Scan_Pos_srv");
+  ros::ServiceClient client3 = nh.serviceClient<ros_robotics_interface::TrajectoryService>("KUKA_HMI_srv");
+  ros::ServiceClient client4 = nh.serviceClient<ros_robotics_interface::ScanPositionService>("KUKA_Pos_srv");
 
-  my_pkg::TrajectoryService srv;
-  my_pkg::TrajectoryService srv2;
-  my_pkg::ScanPositionService srv3;
+  ros_robotics_interface::TrajectoryService srv;
+  ros_robotics_interface::TrajectoryService srv2;
+  ros_robotics_interface::ScanPositionService srv3;
 
   //srv.request.rpose.push_back(set_point(244.05, 9.32, 682.44,163.76,10.71,178.07));
   //rv.request.rpose.push_back(set_point(64.86, -185.24, 598.40,101.07,-61.28,-107.73));

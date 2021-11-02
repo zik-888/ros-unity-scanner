@@ -6,10 +6,10 @@
 #include <thread>
 
 
-#include <my_pkg/TrajectoryService.h>
+#include <ros_robotics_interface/TrajectoryService.h>
 
-#include <my_pkg/ScanPositionService.h>
-//#include<my_pkg/ScanPo
+#include <ros_robotics_interface/ScanPositionService.h>
+//#include<ros_robotics_interface/ScanPo
 
 #include <manipulator.h>
 
@@ -25,7 +25,7 @@ geometry_msgs::Pose XHOME = set_point(-0.2310, 0.0,1.6516,0,0,0);
 
 
 
-bool Scan_mes_processing(my_pkg::TrajectoryService::Request  &req, my_pkg::TrajectoryService::Response &res)
+bool Scan_mes_processing(ros_robotics_interface::TrajectoryService::Request  &req, ros_robotics_interface::TrajectoryService::Response &res)
 {
     ROS_INFO("GOT SCAN REQUEST");
 
@@ -62,7 +62,7 @@ bool Scan_mes_processing(my_pkg::TrajectoryService::Request  &req, my_pkg::Traje
     return true;
 }
 
-bool Scan_position_service_callbackfunction(my_pkg::ScanPositionService::Request  &req, my_pkg::ScanPositionService::Response &res)
+bool Scan_position_service_callbackfunction(ros_robotics_interface::ScanPositionService::Request  &req, ros_robotics_interface::ScanPositionService::Response &res)
 {
     ROS_INFO("GOT SCAN POSITION REQUEST");
 
