@@ -2,6 +2,7 @@ cmake-build-debug/
 scanning_system_core/delaunator/
 scanning_system_core/cmake-build-debug/
 my_pkg/cmake-build-debug/
+.idea/
 
 CMakeLists.txt.user
 scanning_system_core/CMakeLists.txt.user
