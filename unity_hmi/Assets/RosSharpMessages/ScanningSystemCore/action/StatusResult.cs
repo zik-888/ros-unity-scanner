@@ -13,7 +13,7 @@ namespace RosSharp.RosBridgeClient.MessageTypes.ScanningSystemCore
 {
     public class StatusResult : Message
     {
-        public const string RosMessageName = "scanning_system_core/StatusResult";
+        public const string RosMessageName = "ros_scanner_interface/StatusResult";
 
         // result definition
         public bool status { get; set; }

@@ -13,7 +13,7 @@ namespace RosSharp.RosBridgeClient.MessageTypes.ScanningSystemCore
 {
     public class ScanningAction : Action<ScanningActionGoal, ScanningActionResult, ScanningActionFeedback, ScanningGoal, ScanningResult, ScanningFeedback>
     {
-        public const string RosMessageName = "scanning_system_core/ScanningAction";
+        public const string RosMessageName = "ros_scanner_interface/ScanningAction";
 
         public ScanningAction() : base()
         {

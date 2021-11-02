@@ -13,7 +13,7 @@ namespace RosSharp.RosBridgeClient.MessageTypes.ScanningSystemCore
 {
     public class StatusFeedback : Message
     {
-        public const string RosMessageName = "scanning_system_core/StatusFeedback";
+        public const string RosMessageName = "ros_scanner_interface/StatusFeedback";
 
         // feedback
         public bool status { get; set; }

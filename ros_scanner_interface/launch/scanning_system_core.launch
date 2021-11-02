@@ -1,0 +1,8 @@
+<launch>
+	<include file="$(find unity_simulation_scene)/launch/unity_simulation_scene.launch"/>
+	
+	<node pkg="ros_scanner_interface" type="scanning_node" name="scanning_node"/>
+	<node pkg="ros_robotics_interface" type="ros_mitsubishi_node" name="ros_mitsubishi_node"/>
+	<node pkg="ros_robotics_interface" type="ros_kuka_node" name="ros_kuka_node"/>
+
+</launch>

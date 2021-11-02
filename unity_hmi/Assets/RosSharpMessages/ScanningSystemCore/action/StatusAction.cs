@@ -13,7 +13,7 @@ namespace RosSharp.RosBridgeClient.MessageTypes.ScanningSystemCore
 {
     public class StatusAction : Action<StatusActionGoal, StatusActionResult, StatusActionFeedback, StatusGoal, StatusResult, StatusFeedback>
     {
-        public const string RosMessageName = "scanning_system_core/StatusAction";
+        public const string RosMessageName = "ros_scanner_interface/StatusAction";
 
         public StatusAction() : base()
         {

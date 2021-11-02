@@ -15,7 +15,7 @@ namespace RosSharp.RosBridgeClient.MessageTypes.ScanningSystemCore {
 
     public class Status : Message
     {
-        public const string RosMessageName = "scanning_system_core/Status";
+        public const string RosMessageName = "ros_scanner_interface/Status";
 
         public string errorcode { get; set; }
         public long status { get; set; }

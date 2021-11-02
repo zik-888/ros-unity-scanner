@@ -16,7 +16,7 @@ namespace RosSharp.RosBridgeClient.MessageTypes.ScanningSystemCore
 {
     public class ProcessingGoal : Message
     {
-        public const string RosMessageName = "scanning_system_core/ProcessingGoal";
+        public const string RosMessageName = "ros_scanner_interface/ProcessingGoal";
 
         // goal definition
         public MeshTriangle[] triangles_CAD { get; set; }

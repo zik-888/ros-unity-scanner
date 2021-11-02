@@ -14,7 +14,7 @@ namespace RosSharp.RosBridgeClient.MessageTypes.ScanningSystemCore
 {
     public class ProcessingActionFeedback : ActionFeedback<ProcessingFeedback>
     {
-        public const string RosMessageName = "scanning_system_core/ProcessingActionFeedback";
+        public const string RosMessageName = "ros_scanner_interface/ProcessingActionFeedback";
 
         public ProcessingActionFeedback() : base()
         {

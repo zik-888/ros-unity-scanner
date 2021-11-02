@@ -14,7 +14,7 @@ namespace RosSharp.RosBridgeClient.MessageTypes.ScanningSystemCore
 {
     public class StatusActionGoal : ActionGoal<StatusGoal>
     {
-        public const string RosMessageName = "scanning_system_core/StatusActionGoal";
+        public const string RosMessageName = "ros_scanner_interface/StatusActionGoal";
 
         public StatusActionGoal() : base()
         {

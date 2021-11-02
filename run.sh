@@ -1,4 +1,4 @@
 ~/Unity/Hub/Editor/2020.3.5f1/Editor/Unity
 #!/bin/bash
 source ~/catkin_ws/devel/setup.bash
-roslaunch scanning_system_core scanning_system_core.launch
+roslaunch ros_scanner_interface ros_scanner_interface.launch
