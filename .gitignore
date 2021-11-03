@@ -2,7 +2,7 @@ cmake-build-debug/
 ros_scanner_interface/delaunator/
 ros_scanner_interface/cmake-build-debug/
 ros_robotics_interface/cmake-build-debug/
-.idea/
+/.idea/
 
 CMakeLists.txt.user
 ros_scanner_interface/CMakeLists.txt.user
